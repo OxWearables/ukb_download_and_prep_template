@@ -15,7 +15,7 @@ To add new codes to an existing dataset, `/well/doherty/projects/UKBB/HES/hesin_
 python3 addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json
  ```
  
-**Note:** This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields (40001 and 4002)[https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093]). 
+**Note:** This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields [40001 and 4002](https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093)). 
 
 ## To freshly download HES data (e.g after new releases):
 
