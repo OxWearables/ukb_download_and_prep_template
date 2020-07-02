@@ -2,11 +2,11 @@
 
 This folder contains tools to help prepare downloaded participant data, including filtering and parsing field IDs and categorical codes of UKB files. 
 
-*Requires:* `pandas`, `nltk` &mdash; these are included in Anaconda.
+This tool requires `pandas`, `nltk` &mdash; these are included in Anaconda (in other Python installations they can be installed).
 
 ## Why this tool?
 
-After you downloaded and converted your UKB file to CSV format as per the user guide, you get a cryptic `ukb12345.csv` that looks something like this:
+After you download and convert your UKB file to CSV format (see `donwload_participant_data`), you get a cryptic `ukb12345.csv` that looks something like this:
 
 | eid     | 31-0.0 | 34-0.0 | 52-0.0 | 53-0.0     | 54-0.0 |   ...
 |---------|--------|--------|--------|------------|--------|--------
@@ -22,28 +22,43 @@ The column names are given as field IDs, and you would need to browse https://bi
 
 ### Basic data preparation
 1. Auto-generate a `columns.py` file from the text file of field IDs (in the format used in `download_participant_data`):
-  ```
-  python write_columns_file.py --columns_text_file analysisCols.txt
-  ``` 
-  This automatically generates a file listing the first measurement at the first assessment of the given variable. Alternatively, and if you want to customise the behaviour or add other columns (or repeat measurements), you can add desired field IDs in `columns.py` following the format described below.
+   ```
+   python write_columns_file.py --columns_text_file analysisCols.txt
+   ``` 
+   This automatically generates a file listing the first measurement at the first assessment of the given variable.
 
 2. Run:
-  ```
-  python filter_ukb.py ukb12345.csv -o output_filename.csv
-  ```
-  `output_filename.csv` has columns named according to the variable name, and Note the default behaviour is to use the first measurement from the first assessment visit: this generally works well, but has some problems (e.g. certain columns like blood pressure had multiple measurements taken as standard, which you may wish to use). 
+   ```
+   python filter_ukb.py ukb12345.csv -o output_filename.csv
+   ```
+   `output_filename.csv` has columns named according to the variable name, and categorical variables are recoded according to the Data Dictionary.
+   
+Note under this basic usage several defaults are used: 
+- The default behaviour is to use the first measurement from the first assessment visit: this works well for most things, but not for everything (e.g. certain columns like blood pressure had multiple measurements taken as standard, which you may wish to use). 
+- Coding of categorical variables is based on UK Biobank's data dictionary. 
+- Renaming of variables is automatic based on the variable name. This generally works well but can lead to slightly cryptic outputs for variables with long or convoluted names. 
+- No derived variables are produced (variables derived from more than one existing variable). 
+
+All of these can be altered. 
 
 ### Manually adding a field ID to `columns.py`
-Sometimes, you may wish to manually add certain fields. For example, to add the second measurement of systolic blood pressure (field 93), open `columns.py` and under the `COLUMNS` dictionary add:
+Manually adding fields allows you to: 
+- Add columns which are not automatically included (e.g. repeat measurements, or variables which were missed from the original list). 
+- Specify the column name. 
+- Specify how the variable is coded. 
+
+For example, to add the second measurement of systolic blood pressure (field `4080`), open `columns.py` and under the `COLUMNS` dictionary add:
 ```python
 COLUMNS = {
     # ...
 
-    "93-0.1":{},
+    "4080-0.1":{`drop_suffix=False`, },
 
     # ...
 }
 ```
+\[` 'drop_suffix = False' ` means the visit number and measurement number are retained in the column name, which is useful when using multiple measurements of the same variable (described in 'Miscellaneous' below).\]
+
 To add `1558` (alcohol intake frequency), open `columns.py` and under the `COLUMNS` dictionary add:
 
 ```python
@@ -104,7 +119,6 @@ will convert the previous column to
 | never                      |
 | ...                        |
 
-See `columns.py` for more examples.
 
 ## Derived columns
 Another processing pattern that you might have is to create new columns based on operations on other columns. To use this option, `filter_ukb.py` must be run with the optional argument `--derived_columns True`, and the columns used for the derivation must be added to `columns.py` (if they are not already there). 
@@ -136,7 +150,7 @@ The `columns` key defines which columns of the raw UKB table to select, and `fun
 | NaN                        |
 | ...                        |
 
-See `derived_columns.py` for more examples.
+See `derived_columns.py` for examples.
 
 ## Miscellaneous
 
@@ -146,7 +160,7 @@ Sometimes we have multiple UKB files because we requested more variables later d
 `python filter_ukb.py ukb12345.csv ukb67890.csv -o output_filename.csv`
 
 ### Field ID suffixes
-When automatically parsing the field ID, by default it will drop the suffixes `-X.Y` (indicating visit number and array index, for example `-0.0`, `-1.0`, etc). If you need to keep these, set the key `drop_suffix=False` and it will append the suffixes as `_X_Y`. For example,
+When automatically parsing the field ID, by default it will drop the suffixes `-X.Y` (indicating visit number and measurement number, for example `-0.0`, `-1.0`, etc). If you need to keep these, set the key `drop_suffix=False` and it will append the suffixes as `_X_Y`. For example,
 
 ```python
 COLUMNS = {
