@@ -33,15 +33,15 @@ Before downloading any HES data for yourself, you should read the [UK Biobank gu
 	  ```
   
 3. Join files together to ensure secondary ICD9/10 codes are recorded, then upload as master csv
-  ```Bash
-  # Rename files if necessary to match the names used here
-  
-  # Call python script to merge files together and delete downloaded input files
-  python mergeHESfiles.py ~/Downloads/hesin.txt ~/Downloads/hesin_diag.txt \
-  ~/Downloads/hesin_all.csv
-  
-  # Copy the relevant *.csv files to /..path../participant-info/
-  scp ~/Downloads/hesin_all.csv your_rescomp_username@rescomp.well.ox.ac.uk:/well/doherty/projects/UKBB/participant-info/
-  ```
+	  ```Bash
+	  # Rename files if necessary to match the names used here
+
+	  # Call python script to merge files together and delete downloaded input files
+	  python mergeHESfiles.py ~/Downloads/hesin.txt ~/Downloads/hesin_diag.txt \
+	  ~/Downloads/hesin_all.csv
+
+	  # Copy the relevant *.csv files to /..path../participant-info/
+	  scp ~/Downloads/hesin_all.csv your_rescomp_username@rescomp.well.ox.ac.uk:/well/doherty/projects/UKBB/participant-info/
+	  ```
  
 If you have done this after a new release, please update `hesin_all.csv` in `/well/doherty/projects/UKBB/HES`. 
