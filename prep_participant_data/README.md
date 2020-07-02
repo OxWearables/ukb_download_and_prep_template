@@ -123,7 +123,7 @@ will convert the previous column to
 ## Derived columns
 Another processing pattern that you might have is to create new columns based on operations on other columns. To use this option, `filter_ukb.py` must be run with the optional argument `--derived_columns True`. 
 
-The `derived_columns.py` file is used to specify the operations used to create columns. The file included contains some common options (note that the required columns must be in the downloaded file, which may be the source of errors). 
+The `derived_columns.py` file is used to specify the operations used to create columns. The file included contains some common options (note that the required columns must be in the downloaded file - if they're not, there will be error messages). 
 
 For example, there are (confusingly) three columns corresponding to date of death: `40001-0.0`, `40001-1.0` and `40001-2.0`. It makes sense that the earliest of these is the date of death. To do this, open `derived_columns.py` and under the `DERIVED_COLUMNS` dictionary add:
 
