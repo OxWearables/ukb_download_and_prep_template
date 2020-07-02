@@ -1,10 +1,10 @@
 # Downloading accelerometer data from UK Biobank database
 
-We want to download raw accelerometer data to the BMRC/Rescomp system. However
+We want to download raw accelerometer data to the BMRC (Rescomp) system. However
 it is not possible to run a parallel download of UK Biobank accelerometer data 
 from this system (we could do it one-by-one but that would take forever). We
 therefore use the NDPH NC system to download the UKBB accelerometer data to a 
-temporary location on there. Then we rsync the data from NC to the BMRC/Rescomp
+temporary location on there. Then we rsync the data from NC to the BMRC (Rescomp)
 system.
 
 - First, we want to extract the calibration information as this will reduce 
