@@ -3,7 +3,7 @@
 Generally, we will be able to work with the existing copy of the data and simply extract new variables from this ('Working with the existing copy of the data'). Sometimes it will be necessary to download a new copy ('Downloading a new copy of the data') e.g. to work with a different application, or if new variables are released. 
 
 ## Working with the existing copy of the data
-`ukb_copy_41733_application59070.html` lists all the variables which are available as part of [Aiden's 59070 application](https://www.ukbiobank.ac.uk/2020/04/statistical-machine-learning-of-wearable-sensor-data-to-predict-disease-outcomes/). To access specific variables, we extract them from the file which contains all variables for all participants (in this case, `41733.enc_ukb file`, which can be found on the BMRC (Rescomp) system under: `/well/doherty/projects/UKBB/participant-data`). 
+`ukb_copy_41733_application59070.html` lists all the variables which are available as part of [Aiden's 59070 application](https://www.ukbiobank.ac.uk/2020/04/statistical-machine-learning-of-wearable-sensor-data-to-predict-disease-outcomes/). To access specific variables, we extract them from the file which contains all variables for all participants- in this case, `41733.enc_ukb`, which can be found on the BMRC (Rescomp) system under: `/well/doherty/projects/UKBB/participant-data`. 
 
 ### Download steps
 1. Find the [UK Biobank Data Field IDs](http://biobank.ctsu.ox.ac.uk/crystal/search.cgi) of interest (e.g. [smoking status is 20116](http://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20116)).
