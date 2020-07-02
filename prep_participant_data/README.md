@@ -52,7 +52,7 @@ For example, to add the second measurement of systolic blood pressure (field `40
 COLUMNS = {
     # ...
 
-    "4080-0.1":{`drop_suffix=False`, },
+    "4080-0.1":{"drop_suffix":False, },
 
     # ...
 }
