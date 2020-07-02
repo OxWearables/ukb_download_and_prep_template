@@ -6,7 +6,7 @@ To understand the available datasets:
 - Here is [a good summary of what health outcomes data exists and pros and cons of using different aspects](http://biobank.ndph.ox.ac.uk/showcase/showcase/docs/HealthOutcomesOverview.pdf) (up-to-date as of Sep 2019).
 - Note the [dates for which HES data are available](https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=Data_providers_and_dates).
 
-In the remainder, we discuss Hospital Episode Statistics: [ICD9/10 codes](https://www.who.int/classifications/icd/icdonlineversions/en/) from hospital admissions. If you require Operations and Procedures codes or primary care codes, these need to be processed separately. 
+Here, we discuss Hospital Episode Statistics: [ICD9/10 codes](https://www.who.int/classifications/icd/icdonlineversions/en/) from hospital admissions. If you require Operations and Procedures codes or primary care codes, these need to be processed separately. 
 
 ## To add new codes to an existing dataset: 
 
