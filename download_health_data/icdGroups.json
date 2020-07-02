@@ -1,0 +1,260 @@
+[
+    {
+        "disease": "cvd-acute-MI", 
+        "desc": "Derrick Bennett CKB Analysis",
+        "icd10": "I2[1-3]",
+        "icd9": "^410|^412" 
+    }, 
+    {
+        "disease": "cvd-stroke-any", 
+        "desc": "Jason Gill BMJ Active Travel", 
+        "icd10": "I6[0-4]", 
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "cvd-heartFailure", 
+        "desc": "Will Herrington dialysis project", 
+        "icd10": "I11|I13|I255|I42|I50",
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "diabetes-type1", 
+        "desc": "Naomi UKB PLOS ONE Diabetes algorithm", 
+        "icd10": "E10", 
+        "icd9": "^25011"
+    }, 
+    {
+        "disease": "diabetes-type2", 
+        "desc": "Naomi UKB PLOS ONE Diabetes algorithm", 
+        "icd10": "E11", 
+        "icd9": "^25010" 
+    }, 
+    {
+        "disease": "diabetes-unspecified", 
+        "desc": "Naomi UKB PLOS ONE Diabetes algorithm", 
+        "icd10": "E13|E14",
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "dialysis", 
+        "desc": "Will Herrington BHF Trial Power Calculations", 
+        "icd10": "N180|N185|Z992", 
+        "icd9": "X402|X403|X405|X406"
+    },
+    {
+        "disease": "cancer-non-benign", 
+        "desc": "Jason Gill BMJ Active Travel", 
+        "icd10": "C|D3[7-9]|D4[0-8]", 
+        "icd9": "^1[4-9]|^20|^23[5-9]"
+    },
+    {
+        "disease": "dementia", 
+        "desc": "ICD 10 search", 
+        "icd10": "A810|F0[0-3]|F051|F106|G30|G310|G311|G318|I673", 
+        "icd9": "^3310"
+    },
+    {
+        "disease": "certain-infections-parasitic", 
+        "desc": "Certain infectious and parasitic diseases",
+        "icd10": "A|B", 
+        "icd9": "^0|^1[0-3]"
+    },
+    {
+        "disease": "neoplasms", 
+        "desc": "Neoplasms",
+        "icd10": "C|D[0-4]", 
+        "icd9": "^1[4-9]|^2[0-3]"
+    },
+    {
+        "disease": "blood-disorders", 
+        "desc": "Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism",
+        "icd10": "D[5-9]", 
+        "icd9": "^279|^28"
+    },
+    {
+        "disease": "endocrine-nutrition-metabolic", 
+        "desc": "Endocrine, nutritional and metabolic diseases",
+        "icd10": "E", 
+        "icd9": "^2[4-6]|^27[0-8]"
+    },
+    {
+        "disease": "mental-behavioural-disorders", 
+        "desc": "Mental, Behavioral and Neurodevelopmental disorders",
+        "icd10": "F", 
+        "icd9": "^29|^3[0-1]"
+    },
+    {
+        "disease": "nervous-system", 
+        "desc": "Diseases of the nervous system",
+        "icd10": "G", 
+        "icd9": "^3[2-5]"
+    },
+    {
+        "disease": "eye", 
+        "desc": "Diseases of the eye and adnexa",
+        "icd10": "H[0-5]", 
+        "icd9": "^3[6-7]"
+    },
+    {
+        "disease": "ear", 
+        "desc": "Diseases of the ear and mastoid process",
+        "icd10": "H[6-9]", 
+        "icd9": "^38"
+    },
+    {
+        "disease": "circulatory", 
+        "desc": "Diseases of the circulatory system",
+        "icd10": "I", 
+        "icd9": "^39|^4[0-5]"
+    },
+    {
+        "disease": "respiratory", 
+        "desc": "Diseases of the respiratory system",
+        "icd10": "J", 
+        "icd9": "^4[6-9]|^5[0-1]"
+    },
+    {
+        "disease": "digestive", 
+        "desc": "Diseases of the digestive system",
+        "icd10": "K", 
+        "icd9": "^5[2-7]"
+    },
+    {
+        "disease": "skin-subcutaneous-tissue", 
+        "desc": "Diseases of the skin and subcutaneous tissue",
+        "icd10": "L", 
+        "icd9": "^6[8-9]|^70"
+    },
+    {
+        "disease": "musculoskeletal",
+        "desc": "Diseases of the musculoskeletal system and connective tissue",
+        "icd10": "M", 
+        "icd9": "^7[1-3]"
+    },
+    {
+        "disease": "genitourinary",
+        "desc": "Diseases of the genitourinary system", 
+        "icd10": "N", 
+        "icd9": "^5[8-9]|^6[0-2]"
+    },
+    {
+        "disease": "pregnancy-childbirth-puerperium",
+        "desc": "Pregnancy, childbirth and the puerperium", 
+        "icd10": "O", 
+        "icd9": "^6[3-7]"
+    },
+    {
+        "disease": "perinatal-period", 
+        "desc": "Certain conditions originating in the perinatal period",
+        "icd10": "P", 
+        "icd9": "^7[6-7]"
+    },
+    {
+        "disease": "congenital-abnormalities", 
+        "desc": "Congenital malformations, deformations and chromosomal abnormalities",
+        "icd10": "Q", 
+        "icd9": "^7[4-5]"
+    },
+    {
+        "disease": "abnormal-findings", 
+        "desc": "Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",
+        "icd10": "R", 
+        "icd9": "^7[8-9]"
+    },
+    {
+        "disease": "injury-poisoning", 
+        "desc": "Injury, poisoning and certain other consequences of external causes",
+        "icd10": "S|T", 
+        "icd9": "^8|^9"
+    },
+    {
+        "disease": "external-morbidity-causes", 
+        "desc": "External causes of morbidity",
+        "icd10": "V|Y", 
+        "icd9": "^E"
+    },
+    {
+        "disease": "factors-influencing-health-status-services",
+        "desc": "Factors influencing health status and contact with health services", 
+        "icd10": "Z", 
+        "icd9": "^V"
+    }, 
+    {
+        "disease": "ischaemic-heart-disease", 
+        "desc": "IHD used in Rema Ramakrishnan paper", 
+        "icd10": "I2[0-5]",
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "cerebrovascular-disease", 
+        "desc": "cerebrovascular disease used in Rema Ramakrishnan paper", 
+        "icd10": "I6",
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "acute-myocardial-infarction", 
+        "desc": "acute MI used in Rema Ramakrishnan paper", 
+        "icd10": "I21",
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "acute-stroke", 
+        "desc": "acute stroke used in Rema Ramakrishnan paper", 
+        "icd10": "I60|I61|I63|I64",
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "generic_cvd", 
+        "desc": "very broad definition of CVD", 
+        "icd10": "I0[5-9]|I[1-8]",
+        "icd9": "-" 
+    }, 
+{
+        "disease": "Vascular dementia", 
+        "desc": "",
+        "icd10": "F01",
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "breast-cancer", 
+        "desc": "definition from https://lci.macmillan.org.uk/england/faq/ - malignant neoplasm of breast",
+        "icd10": "C50",
+        "icd9": "-" 
+    }, 
+{
+        "disease": "colorectal-cancer", 
+        "desc": "definition from https://lci.macmillan.org.uk/england/faq/ - malignant neoplasm of colon, rectosigmoid junction or rectum",
+        "icd10": "C18|C19|C20",
+        "icd9": "-" 
+    }, 
+{
+        "disease": "breast-or-colorectal-cancer", 
+        "desc": " ",
+        "icd10": "C18|C19|C20|C50",
+        "icd9": "-" 
+    }, 
+    {
+        "disease": "malignant-neoplasms", 
+        "desc": " ", 
+        "icd10": "C", 
+        "icd9": "^1[4-9]|^20"
+    }, 
+    {
+        "disease": "chronic-lower-respiratory-disease", 
+        "desc": " ", 
+        "icd10": "J33|J49", 
+        "icd9": "^490|^491|^492|^493|^494|^495|^496"
+    }, 
+    {
+        "disease": "qrisk", 
+        "desc": "Definition used to develop qrisk", 
+        "icd10": "I2[0-5]|G45|I6[3-4]",
+        "icd9": "-" 
+    }, 
+  {
+        "disease": "ischaemic.stroke", 
+        "desc": "Ischaemic stroke", 
+        "icd10": "I6[3-4]",
+        "icd9": "-" 
+    }
+]

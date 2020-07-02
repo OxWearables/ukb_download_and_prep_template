@@ -1,0 +1,10 @@
+90161 # xOff
+90162 # yOff
+90163 # zOff
+90164 # xSlope
+90165 # ySlope
+90166 # zSlope
+90167 # xTemp
+90168 # yTemp
+90169 # zTemp
+90170 # meanTemp
