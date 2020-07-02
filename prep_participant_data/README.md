@@ -34,7 +34,7 @@ The column names are given as field IDs, and you would need to browse https://bi
    `output_filename.csv` has columns named according to the variable name, and categorical variables are recoded according to the Data Dictionary.
    
 Note under this basic usage several defaults are used: 
-- The default behaviour is to use the first measurement from the first assessment visit: this works well for most things, but not for everything (e.g. certain columns like blood pressure had multiple measurements taken as standard, which you may wish to use). 
+- The default behaviour is to use the first measurement from the first assessment visit: this works well for most things, but not for everything (e.g. certain columns like blood pressure standardly had multiple measurements taken, which you may wish to use). 
 - Coding of categorical variables is based on UK Biobank's data dictionary. 
 - Renaming of variables is automatic based on the variable name. This generally works well but can lead to slightly cryptic outputs for variables with long or convoluted names. 
 - No derived variables are produced (variables derived from more than one existing variable). 
