@@ -1,0 +1,242 @@
+# DEMOGRAPHICS 
+31 # sex.31
+34 # yearBirth.34
+52 # monthBirth.52
+21000 # ethnicity.21000
+
+# SAMPLING 
+53 # testCenDate.53
+54 # testCen.54
+20005 # email.20005
+
+# BIOMETRICS
+46 # gripStrengthL.46
+47 # gripStrengthR.47
+48 # waistCircumference.48_
+49 # hipCircumference.49
+50 # standingHeight.50
+51 # seatedHeight.51
+93 # systolicBP-manual.93
+94 # diastolicBP-manual.94
+4079 # diastolicBP-auto.4079
+4080 # systolicBP-auto.4080
+95 # pulseRate-duringBP.95
+102 # pulseRate-automated.102
+21001 # bmi.21001
+23099 # bodyFat.23099
+
+# SOCIOECONOMIC
+189 # townsendIndex.189
+670 # typeHouse.670
+709 # numInHouse.709
+728 # carsInHouse.728
+738 # houseIncome.738
+845 # ageCompletedFullTimeEducation.845
+6138 # education.6138
+6142 # working.6142
+
+# ACTIVITY SELF REPORT
+796 # Distance_between_home_and_job_workplace.796
+806 # jobInvolvesWalkingStanding.806
+816 # jobActivity.816
+864 # numberOfDaysWeekWalked10+mins.864
+874 # durWalks.874
+884 # numberOfDaysWeekMPA10+mins.864
+894 # durMPA.894
+914 # durVPA.914
+924 # walkSpeed.924
+943 # freqStairClimb.943
+981 # durWalkPleasure.981
+991 # freqStrenuousSports.991
+1070 # tvSit.1070
+1080 # pcSit.1080
+1001 # Duration_of_strenous_sports
+1021 # durLightDIY
+1090 # durDriving.1090
+3647 # durOtherExercise.3647
+2634 # durHeavyDIY.2634
+6017 # able2Walk.6017
+6164 # typesOfPhysicalActivityLast4Weeks
+104900 # durVPAYesterdayWebQ.104900
+104910 # durMPAYesterdayWebQ.104910
+104920 # durLPAYesterdayWebQ.104920
+
+# SLEEP AND CIRCADIAN
+826 # shiftWork.826
+1160 # sleep.1160
+1170 # how_easy_to_get_up_in_morning
+1180 # morning/evening_person
+1190 # nap_during_day
+1200 # insomnia.1200
+3426 # jobInvolveNightShiftWork.3426
+
+# BEHAVIOURAL 
+1558 # alcohol.1558
+20116 # smoke.20116
+
+# MISCELLANEOUS
+1110 # mobPhoneYesNo.1110
+1120 # mobPhone.1120
+1707 # handedness.1707
+20043 # amputee.20043
+20044 # amputee.20044
+6143 # transportTypeForCommuting.6143
+20118 # urbanRural.20118
+
+# SR HEALTH 
+1930 # miserableness.1930
+2178 # overallHealth.2178
+2188 # disability.2188
+2443 # diabetesDiag.2443
+2453 # cancerDiag.2453
+2976 # ageDiabetesDiag.2976
+4041 # gestDiabOnly.4041
+6150 # heartProbs.6150
+6153 # cvdDiabMed.6153
+6177 # cvdDiabMed.6177
+20126 # bipolarDepressStatus.20126
+
+# ACCELEROMETRY
+110005 # accept.110005
+110006 # accInviteDate.110006
+90012 # Overall_acceleration_average
+90015 # Data_quality,_good_wear_time
+90016 # Data_quality,_good_calibration
+
+# DIET
+100002 # diet.100002
+1289 # Cooked_vegetable_intake
+1299 # Salad_/_raw_vegetable_intake
+1309 # Fresh_fruit_intake
+1319 # Dried_fruit_intake
+1329 # Oily_fish_intake
+1339 # Non-oily_fish_intake
+1349 # Processed_meat_intake
+1359 # Poultry_intake
+1369 # Beef_intake
+1379 # Lamb/mutton_intake
+1389 # Pork_intake
+3680 # Age_when_last_ate_meat
+6144 # Never_eat_eggs,_dairy,_wheat,_sugar
+10855 # Never_eat_eggs,_dairy,_wheat,_sugar_(pilot)
+1408 # Cheese_intake
+1418 # Milk_type_used
+1428 # Spread_type
+2654 # Non-butter_spread_type_details
+10767 # Spread_type_(pilot)
+1438 # Bread_intake
+1448 # Bread_type
+10776 # Bread_type/intake_(pilot)
+1458 # Cereal_intake
+1468 # Cereal_type
+1478 # Salt_added_to_food
+1488 # Tea_intake
+1508 # Coffee_type
+1518 # Hot_drink_temperature
+1528 # Water_intake
+1538 # Major_dietary_changes_in_the_last_5_years
+1548 # Variation_in_diet
+
+#_BIOMARKERS_BLOOD_BIOCHEMISTRY
+30620 # Alanine_aminotransferase
+30600 # Albumin
+30610 # Alkaline_phosphatase
+30630 # Apolipoprotein_A
+30640 # Apolipoprotein_B
+30650 # Aspartate_aminotransferase
+30710 # C-reactive_protein
+30680 # Calcium
+30690 # Cholesterol
+30700 # Creatinine
+30720 # Cystatin_C
+30660 # Direct_bilirubin
+30730 # Gamma_glutamyltransferase
+30740 # Glucose
+30750 # Glycated_haemoglobin_(HbA1c)
+30760 # HDL_cholesterol
+30770 # IGF-1
+30780 # LDL_direct
+30790 # Lipoprotein_A
+30800 # Oestradiol
+30810 # Phosphate
+30820 # Rheumatoid_factor
+30830 # SHBG
+30850 # Testosterone
+30840 # Total_bilirubin
+30860 # Total_protein
+30870 # Triglycerides
+30880 # Urate
+30670 # Urea
+30890 # Vitamin_D
+
+#_BLOOD_COUNT_
+30160 # Basophill_count
+30220 # Basophill_percentage
+30150 # Eosinophill_count
+30210 # Eosinophill_percentage
+30030 # Haematocrit_percentage
+30020 # Haemoglobin_concentration
+30300 # High_light_scatter_reticulocyte_count
+30290 # High_light_scatter_reticulocyte_percentage
+30280 # Immature_reticulocyte_fraction
+30120 # Lymphocyte_count
+30180 # Lymphocyte_percentage
+30050 # Mean_corpuscular_haemoglobin
+30060 # Mean_corpuscular_haemoglobin_concentration
+30040 # Mean_corpuscular_volume
+30100 # Mean_platelet_(thrombocyte)_volume
+30260 # Mean_reticulocyte_volume
+30270 # Mean_sphered_cell_volume
+30130 # Monocyte_count
+30190 # Monocyte_percentage
+30140 # Neutrophill_count
+30200 # Neutrophill_percentage
+30170 # Nucleated_red_blood_cell_count
+30230 # Nucleated_red_blood_cell_percentage
+30080 # Platelet_count
+30090 # Platelet_crit
+30110 # Platelet_distribution_width
+30010 # Red_blood_cell_(erythrocyte)_count
+30070 # Red_blood_cell_(erythrocyte)_distribution_width
+30250 # Reticulocyte_count
+30240 # Reticulocyte_percentage
+30000 # White_blood_cell_(leukocyte)_count
+
+#_INFECTIOUS_DISEASES_
+23050 # HSV-1_seropositivity_for_Herpes_Simplex_virus-1
+23051 # HSV-2_seropositivity_for_Herpes_Simplex_virus-2
+23052 # VZV_seropositivity_for_Varicella_Zoster_Virus
+23053 # EBV_seropositivity_for_Epstein-Barr_Virus
+23054 # CMV_seropositivity_for_Human_Cytomegalovirus
+23055 # HHV-6_overall_seropositivity_for_Human_Herpesvirus-6
+23056 # HHV-6A_seropositivity_for_Human_Herpesvirus-6
+23057 # HHV-6B_seropositivity_for_Human_Herpesvirus-6
+23058 # HHV-7_seropositivity_for_Human_Herpesvirus-7
+23059 # KSHV_seropositivity_for_Kaposi's_Sarcoma-Associated_Herpesvirus
+23060 # HBV_seropositivity_for_Hepatitis_B_Virus
+23061 # HCV_seropositivity_for_Hepatitis_C_Virus
+23062 # T._gondii_seropositivity_for_Toxoplasma_gondii
+23063 # HTLV-1_seropositivity_for_Human_T-Lymphotropic_Virus_1
+23064 # HIV-1_seropositivity_for_Human_Immunodeficiency_Virus
+23065 # BKV_seropositivity_for_Human_Polyomavirus_BKV
+23066 # JCV_seropositivity_for_Human_Polyomavirus_JCV
+23067 # MCV_seropositivity_for_Merkel_Cell_Polyomavirus
+23068 # HPV_16_Definition_I_seropositivity_for_Human_Papillomavirus_type-16
+23075 # HPV_16_Definition_II_seropositivity_for_Human_Papillomavirus_type-16
+23069 # HPV_18_seropositivity_for_Human_Papillomavirus_type-18
+23070 # C._trachomatis_Definition_I_seropositivity_for_Chlamydia_trachomatis
+23071 # C._trachomatis_Definition_II_seropositivity_for_Chlamydia_trachomatis
+23073 # H._pylori_Definition_I_seropositivity_for_Helicobacter_pylori
+23074 # H._pylori_Definition_II_seropositivity_for_Helicobacter_pylori
+
+
+#_HEALTH_OUTCOMES
+40000 # date_of_death
+40001 # Primary_cause_of_death_ICD10
+40002 # Secondary_causes_of_death_ICD10
+40007 # Age_at_death
+#_40005 # Date_of_cancer_diagnosis
+#_40006 # Type_of_cancer_ICD10
+#_40008 # Age_at_cancer_diagnosis
+#_40009 # Reported_occurrences_of_cancer
+#_40013 # Type_of_cancer_ICD9

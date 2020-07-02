@@ -1,0 +1,7 @@
+*.csv
+*.enc
+*.enc_ukb
+!Data_Dictionary_Showcase.csv
+!Codings_Showcase.csv
+columns.py
+*key*
