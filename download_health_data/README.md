@@ -19,7 +19,7 @@ python3 addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json
 
 ## To freshly download HES data (e.g after new releases):
 
-Before downloading any HES data for yourself, you should read the [UK Biobank guide on how to access data](http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf). 
+Before downloading any HES data for yourself, you should read the [UK Biobank guide on how to access data](http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf). If you do this after a new release, please update `hesin_all.csv` in `/well/doherty/projects/UKBB/HES`.  
 
 ### Download steps
 1. Follow the [UKB guide to access the data portal](http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf). 
@@ -44,4 +44,4 @@ Before downloading any HES data for yourself, you should read the [UK Biobank gu
 	  scp ~/Downloads/hesin_all.csv your_rescomp_username@rescomp.well.ox.ac.uk:/well/doherty/projects/UKBB/participant-info/
 	  ```
  
-If you have done this after a new release, please update `hesin_all.csv` in `/well/doherty/projects/UKBB/HES`. 
+
