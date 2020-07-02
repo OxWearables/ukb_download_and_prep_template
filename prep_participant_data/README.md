@@ -25,13 +25,13 @@ The column names are given as field IDs, and you would need to browse https://bi
  ```
  python write_columns_file.py --columns_text_file analysisCols.txt
  ``` 
- This automatically generates a file listing the first measurement at the first assessment of the given variable. Alternatively, and if you want to customise the behaviour or add other columns (or repeat measurements), you can add desired field IDs in `columns.py` following the format described below. 
- 2. Run:
+ This automatically generates a file listing the first measurement at the first assessment of the given variable. Alternatively, and if you want to customise the behaviour or add other columns (or repeat measurements), you can add desired field IDs in `columns.py` following the format described below.
 
-```
-python filter_ukb.py ukb12345.csv -o output_filename.csv
-```
-`output_filename.csv` has columns named according to the variable name, and Note the default behaviour is to use the first measurement from the first assessment visit: this generally works well, but has some problems (e.g. certain columns like blood pressure had multiple measurements taken as standard, whcih you may wish to use). 
+2. Run:
+ ```
+ python filter_ukb.py ukb12345.csv -o output_filename.csv
+ ```
+ `output_filename.csv` has columns named according to the variable name, and Note the default behaviour is to use the first measurement from the first assessment visit: this generally works well, but has some problems (e.g. certain columns like blood pressure had multiple measurements taken as standard, which you may wish to use). 
 
 ### Manually adding a field ID to `columns.py`
 Sometimes, you may wish to manually add certain fields. For example, to add the second measurement of systolic blood pressure (field 93), open `columns.py` and under the `COLUMNS` dictionary add:
