@@ -1,4 +1,4 @@
-# Downloading health record data from the UK Biobank dataset
+# Downloading health record data from the UK Biobank database
 
 UK Biobank benefits from passive follow-up via health record linkage.
 
