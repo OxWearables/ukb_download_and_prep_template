@@ -1,6 +1,6 @@
-# Tool for filtering and parsing field IDs and categorical codes of UKB files
+# Prepare participant data
 
-This folder contains tools to help prepare downloaded participant data. 
+This folder contains tools to help prepare downloaded participant data, including filtering and parsing field IDs and categorical codes of UKB files. 
 
 *Requires:* `pandas`, `nltk` &mdash; these are included in Anaconda.
 
