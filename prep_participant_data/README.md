@@ -16,22 +16,35 @@ After you downloaded and converted your UKB file to CSV format as per the user g
 | 1592599 | 1      | 1939   | 3      | 2009-02-09 | 11011  |   ...
 | 3849156 | 1      | 1958   | 1      | 2009-02-27 | 11016  |   ...
 
-The column names are given as field IDs, and you would need to browse https://biobank.ndph.ox.ac.uk/showcase/search.cgi to get their meanings. For example, `31-0.0` is sex, `34-0.0` is year of birth, and `54-0.0` is assessment center. On top of this, if a field is categorical then their categories are coded, e.g. in sex `0` means female and `1` means male, and in assessment center `11010` is Leeds and `11009` is New Castle. Finally, you may have hundreds or thousands of these columns. Your next step is probably to filter out some columns and parse through the field IDs and categorical codes. This tool attempts to make this processes a little bit easier.
+The column names are given as field IDs, and you would need to browse https://biobank.ndph.ox.ac.uk/showcase/search.cgi to get their meanings. For example, `31-0.0` is sex, `34-0.0` is year of birth, and `54-0.0` is assessment center. On top of this, if a field is categorical then their categories are coded, e.g. in sex `0` means female and `1` means male, and in assessment center `11010` is Leeds and `11009` is Newcastle. Finally, you may have hundreds or thousands of these columns. Your next step is probably to filter out some columns and parse through the field IDs and categorical codes. This tool attempts to make this processes a little bit easier.
 
 ## Usage
 
-Auto-generate a `columns.py` file from the text file of field IDs (in the format used in download_participant_data):
- 
- `python write_columns_file.py --columns_text_file analysisCols.txt` 
- 
-This automatically generates a file listing the first measurement at the first assessment of the given variable. Alternatively, and if you want to customise the behaviour or add other columns (or repeat measurements), you can add desired field IDs in `columns.py` following the format described below. 
+### Basic data preparation
+1. Auto-generate a `columns.py` file from the text file of field IDs (in the format used in download_participant_data):
+ ```
+ python write_columns_file.py --columns_text_file analysisCols.txt
+ ``` 
+ This automatically generates a file listing the first measurement at the first assessment of the given variable. Alternatively, and if you want to customise the behaviour or add other columns (or repeat measurements), you can add desired field IDs in `columns.py` following the format described below. 
+ 2. Run:
 
-Then run:
-
-`python filter_ukb.py ukb12345.csv -o output_filename.csv`
+```
+python filter_ukb.py ukb12345.csv -o output_filename.csv
+```
+`output_filename.csv` has columns named according to the variable name, and Note the default behaviour is to use the first measurement from the first assessment visit: this generally works well, but has some problems (e.g. certain columns like blood pressure had multiple measurements taken as standard, whcih you may wish to use). 
 
 ### Manually adding a field ID to `columns.py`
-For example, to add `1558` (alcohol intake frequency), open `columns.py` and under the `COLUMNS` dictionary add:
+Sometimes, you may wish to manually add certain fields. For example, to add the second measurement of systolic blood pressure (field 93), open `columns.py` and under the `COLUMNS` dictionary add:
+```python
+COLUMNS = {
+    # ...
+
+    "93-0.1":{},
+
+    # ...
+}
+```
+To add `1558` (alcohol intake frequency), open `columns.py` and under the `COLUMNS` dictionary add:
 
 ```python
 COLUMNS = {
@@ -94,7 +107,7 @@ will convert the previous column to
 See `columns.py` for more examples.
 
 ## Derived columns
-Another processing pattern that you might have is to create new columns based on operations on other columns. To use this option, `filter_ukb.py` must be run with the optional argument `--derived_columns True`, and the columns used for the derivation must be manually added to `columns.py`. 
+Another processing pattern that you might have is to create new columns based on operations on other columns. To use this option, `filter_ukb.py` must be run with the optional argument `--derived_columns True`, and the columns used for the derivation must be added to `columns.py` (if they are not already there). 
 
 The `derived_columns.py` file is used to specify the operations used to create columns. The file included contains some common options to derive (but note the required columns must be added to `columns.py`). 
 
