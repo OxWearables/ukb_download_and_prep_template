@@ -61,6 +61,17 @@ Your `ukb12345.csv` from the last step looks something like this:
 
 The column names are given as field IDs, and you would need to browse https://biobank.ndph.ox.ac.uk/showcase/search.cgi to get their meanings. For example, `31-0.0` is sex, `34-0.0` is year of birth, and `54-0.0` is assessment center. On top of this, if a field is categorical then its categories are coded, e.g. in sex `0` means female and `1` means male, and in assessment center `11010` is Leeds and `11009` is New Castle. Finally, you may have hundreds or thousands of these columns. The next step towards having ready-to-use data is to filter out some columns and parse the field IDs and categorical codes. This can be done manually, but automated tools in this repo aim to make it quicker and easier. 
 
+## Usage
+
+Auto-generate an `columns.py` file from the text file of field IDs (in the format used in download_participant_data):
+ 
+ `python write_columns_file.py --columns_text_file analysisCols.txt` 
+ 
+Alternatively, and if you want to customise the behaviour or add subsequent columns, you can add desired field IDs in `columns.py` following the format described below. 
+
+Then run:
+
+`python filter_ukb.py ukb12345.csv -o output_filename.csv`
 
 
 ## 4. Extracting Hospital Episode Statistics on particular diseases
