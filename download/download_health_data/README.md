@@ -8,8 +8,6 @@ To understand the available datasets:
 
 Here, we discuss Hospital Episode Statistics: [ICD9/10 codes](https://www.who.int/classifications/icd/icdonlineversions/en/) from hospital admissions. If you require Operations and Procedures codes or primary care codes, these need to be processed separately. 
 
-Before downloading any HES data for yourself, you should read the [UK Biobank guide on how to access data](http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf).
-
 ### Download steps
 1. Follow the [UKB guide to access the data portal](http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf). 
 2. It is easiest to download the whole table for the relevant data type (e.g. hesin is required for using all the others, hesin_diag provides diagnosis codes, hesin_oper operation codes).
