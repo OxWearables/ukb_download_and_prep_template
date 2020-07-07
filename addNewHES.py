@@ -22,6 +22,9 @@ parser.add_argument('inCSV', type=str,
 parser.add_argument('hesCSV', type=str, help="hospital episode statistics csv")
 parser.add_argument('outCSV', type=str, help="""output for analysis csv""")
 parser.add_argument('diseaseJSON', type=str, default="icdGroups.json", help="""target ICD10/ICD9 groups json""")
+# optional args 
+parser.add_argument('--incident_prevalent', type=bool, default = False, help="""Should columns for incident and prevalent disease be added?""")
+parser.add_argument('--date_column', type=str, default = 'endTime', help="""Name of date column in 'inCSV'""")
 # parse arguments
 if len(sys.argv) < 5:
     parser.print_help()
@@ -33,10 +36,15 @@ Read file of current data
 '''
 print('read ' + args.inCSV)
 dAll = pd.read_csv(args.inCSV)
-if ('file.startTime' not in list(dAll.columns)):
-    sys.exit('file.startTime needs to be a column of inCSV in order to define incident and prevalent disease.')
+if ('eid' not in list(dAll.columns): 
+        sys.exit('inCSV must contain a participant ID column under \'eid\'')
 
-dAll['file.startTime'] = pd.to_datetime(dAll['file.startTime'])
+if args.incident_prevalent:
+        if (args.date_column not in list(dAll.columns)):
+        sys.exit('Date column needs to be a column of inCSV in order to define incident and prevalent disease.')
+
+        dAll[args.date_column] = pd.to_datetime(dAll[args.date_column]])
+
 dAll = dAll.set_index('eid')
 
 '''
@@ -56,21 +64,8 @@ def cleanHESstr(s):
 
 print('Finding participants with: ')
 dHES.loc[dHES['epistart'].isnull(), 'epistart'] = dHES['disdate']
-# first check for any disease history
-# outcomeName = 'anyDisease'
-# e = dHES[['eid','epistart']]
-# outcomePts = e[['epistart']].groupby(e['eid']).min()
-# outcomePts.columns = [outcomeName]
-# dAll = dAll.join(outcomePts)
 
-# dAll[outcomeName + "-incident"] = 0
-# dAll.loc[(dAll[outcomeName] > dAll['file.startTime']) & \
-#        (~dAll[outcomeName].isnull()), outcomeName + '-incident'] = 1
-# dAll[outcomeName + "-prevalent"] = 0
-# dAll.loc[(dAll[outcomeName] <= dAll['file.startTime']) & \
-#        (~dAll[outcomeName].isnull()), outcomeName + '-prevalent'] = 1
-# print(outcomeName, ', n = ', len(dAll[~dAll[outcomeName].isnull()]))
-# finally check for history of specific diseases
+# check for history of specific diseases
 for outcome in diseaseList:
    outcomeName = cleanHESstr(outcome['disease'])
    e = dHES[['eid','epistart']]\
@@ -79,12 +74,14 @@ for outcome in diseaseList:
    outcomePts = e[['epistart']].groupby(e['eid']).min()
    outcomePts.columns = [outcomeName]
    dAll = dAll.join(outcomePts)
-   dAll[outcomeName + "-incident"] = 0
-   dAll.loc[(dAll[outcomeName] > dAll['file.startTime']) & \
-           (~dAll[outcomeName].isnull()), outcomeName + '-incident'] = 1
-   dAll[outcomeName + "-prevalent"] = 0
-   dAll.loc[(dAll[outcomeName] <= dAll['file.startTime']) & \
-           (~dAll[outcomeName].isnull()), outcomeName + '-prevalent'] = 1
+   
+   if args.incident_prevalent: 
+        dAll[outcomeName + "-incident"] = 0
+        dAll.loc[(dAll[outcomeName] > dAll[args.date_column]) & \
+                (~dAll[outcomeName].isnull()), outcomeName + '-incident'] = 1
+        dAll[outcomeName + "-prevalent"] = 0
+        dAll.loc[(dAll[outcomeName] <= dAll[args.date_column]) & \
+                (~dAll[outcomeName].isnull()), outcomeName + '-prevalent'] = 1
    print(outcomeName, ', n = ', len(dAll[~dAll[outcomeName].isnull()])) 
 
 '''
