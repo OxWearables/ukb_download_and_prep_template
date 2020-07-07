@@ -1,13 +1,13 @@
 # Downloading UK Biobank participant data
 
-## Downloading a new copy of the data
-
 This [well documented site on how to access UK Biobank data](http://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=AccessingData) is a good starting point. 
-You should carefully read the ['Using UK Biobank data'](http://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=accessing_data_guide#intro) guide to setup decryption keys. 
-Therefore, for Aiden's UKB 59070 research application and copy number 41733 we would decrypt to an 'unpacked' file
-  ```Bash
-  $ ../helpers/linux_tools/ukb_unpack /well/doherty/projects/UKBB/participant_info/ukb41733.enc k59070r41733.key
-  # output = /well/doherty/projects/UKBB/participant-data/ukb.enc_ukb
-  ```
 
-Specific fields of interest can be extracted from the .enc_ukb file. 
+You will download an encrypted `ukb12345.csv` file. This needs to be decrypted using the key provided by UK Biobank in an email. 
+
+Using this, for research application 6789 and copy number 12345 we would decrypt to an 'unpacked' file: 
+  ```Bash
+  $ .helpers/linux_tools/ukb_unpack path_to_data/ukb12345.enc k6789r41733.key
+  # output = path_to_data/ukb12345.enc_ukb
+  ```
+  
+Specific fields of interest can be extracted from the `.enc_ukb` file (see main repo). 
