@@ -1,4 +1,4 @@
-# Downloading UK Biobank participant data
+# download_participant_data
 
 This [well documented site on how to access UK Biobank data](http://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=AccessingData) is a good starting point. 
 
