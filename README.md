@@ -9,7 +9,7 @@ This repository aims to provide a template for the preparation of [UK Biobank](h
 
 This usage tutorial assumes you have downloaded and extracted a `.enc_ukb` file (participant data) and a `hesin_all.csv` file (health record data) from UK Biobank. The [download](https://github.com/activityMonitoring/ukb_download_and_prep_template/download) folder contains guidance on how to download these. 
 
-**Note on applications and copies:** A UK Biobank dataset is associated with a numbered application and, within that application, a numbered copy (this is so subsequent additions of variables to the same application can be distinguished). Different applications have access to different sets of variables. Copies from the same application can be merged, but different applications have different participant IDs, so cannot be combined (except when UK Biobank has provided a linkage file for specific purposes). Throughout this folder we assume we are using copy number 12345 from application 6789.  
+**Note on applications and copies:** A UK Biobank dataset is associated with a numbered application and, within that application, a numbered copy (this is so subsequent additions of variables to the same application can be distinguished). Different applications have access to different sets of variables. Copies from the same application can be merged, but different applications have different participant IDs, so cannot be merged. Throughout this folder we assume we are using copy number 12345 from application 6789.  
 
 ## 1. Installation 
 
@@ -41,10 +41,10 @@ To access a particular set of variables in `.csv` format, we extract them from t
   # output = path_to_data/ukb12345.csv
   ```
 ### Usage notes 
- - These steps can be done in Windows, Linux or MacOS, but the helper files you need will be slightly different (the tools are in helpers/linux_tools for Linux/MacOS and helpers/windows_tools for Windows).
- - This may fail initially because `analysisCols.txt` contains a field ID which is not present in this copy of the dataset. These field IDs should be removed from `analysisCols.txt`. 
+ - These steps can be done in Windows, Linux or MacOS, but the helper files you need will be slightly different (the tools are in `helpers/linux_tools` for Linux/MacOS and `helpers/windows_tools` for Windows).
+ - This may fail initially because `analysisCols.txt` contains a field ID which is not present in the copy of the dataset you are working with. These field IDs should be removed from `analysisCols.txt`. 
  - How long this extraction will take depends on the number of columns you are extracting, but it is not unusual for it to take several hours. If you just want to add a couple of columns, it is quicker to list them in a separate file (e.g. `analysisColsMini.txt`), extract a small `.csv` file and merge with the existing file on participant IDs.
- - Up to this point we are using only standard UK Biobank functionality - [UK Biobank's guide to accessing the data](https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf) is helpful for queries. 
+ - Up to this point we are using only standard UK Biobank functionality, so [UK Biobank's guide to accessing the data](https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf) may be helpful.  
 
 ## 3. Relabelling and recoding a participant data `.csv` file 
 Your `ukb12345.csv` from the last step looks something like this:
@@ -60,41 +60,44 @@ Your `ukb12345.csv` from the last step looks something like this:
 (This is fake data - Any resemblance to real UK Biobank participants is coincidental!)
 
 - The column names are given as field IDs, and you would need to browse https://biobank.ndph.ox.ac.uk/showcase/search.cgi to get their meanings. For example, `31-0.0` is sex, `34-0.0` is year of birth, and `54-0.0` is assessment center. 
-- If a field is categorical then its categories are coded, e.g. in sex `0` means female and `1` means male, and in assessment center `11010` is Leeds and `11009` is Newcastle. - - You may have hundreds or thousands of these columns. 
+- If a field is categorical then its categories are coded e.g. in sex `0` means female and `1` means male, and in assessment center `11010` is Leeds and `11009` is Newcastle. 
+- You may have hundreds or thousands of these columns. 
 
 Therefore, the next step towards having ready-to-use data is to filter out some columns and parse the field IDs and categorical codes. (While this can be done manually, the automated tools in this repo aim to make it quicker and easier.)
 
 ### Steps
 
-1. Auto-generate an `columns.py` file from the text file of field IDs (in the format used in download_participant_data):
-  `python write_columns_file.py --columns_text_file analysisCols.txt` 
-  (Note: if you want to customise the behaviour or add subsequent columns manually, see [Advanced usage](https://github.com/activityMonitoring/ukb_download_and_prep_template#5-advanced-usage). 
+1. Auto-generate a `columns.py` file from the text file of field IDs (in the format used in download_participant_data):
+```Bash
+  $ python write_columns_file.py --columns_text_file analysisCols.txt 
+ ```
 2. Run:
 ```Bash
 $ python filter_ukb.py ukb12345.csv -o output_filename.csv
 ```
+If you want to customise the behaviour or add subsequent columns manually, see [Advanced usage](https://github.com/activityMonitoring/ukb_download_and_prep_template#5-advanced-usage). 
 
-## 4. Extracting Hospital Episode Statistics on particular diseases
+## 4. Adding Hospital Episode Statistics on particular diseases
 In this section we will add columns on disease diagnoses in hospital to an existing participant dataset (`input.csv`). 
 
 You will need: 
  - `hesin_all.csv`: this is a file containing Hospital Episode Statistics data for all participants. 
  - `icdGroups.json`: this is a JSON file containing descriptions of required HES codes (as in the examples in this folder). 
- - An existing dataset `input.csv`. 
+ - An existing dataset `input.csv` (which might be `output_filename.csv` from the last section). 
  - If you want to define prevalent and incident disease, `input.csv` should also contain a date column which will be used to define this. 
 
 Then run: 
 ```
 python3 addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json --incident_prevalent True --date_column 'name_of_date_column'
 ```
-This will add a column containing the date of first instance of the given disease definition, as well as a binary column indicating incident disease and a binary column indicating prevalence disease (relative to the date in the specified date column). 
+This will add a column containing the date of first instance of the given disease definition, as well as a binary column indicating incident disease and a binary column indicating prevalent disease (relative to the date in the specified date column). 
 
-**Note:** This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields (40001 and 4002)[https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093]) . 
+**Note:** This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields [40001 and 4002](https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093)) . 
  
 ## 5. Advanced usage
 
 ### Manually adding a field to `columns.py`
-Rather than using the autogenerated file for recoding columns, we can manually update `columns.py` to add a particular column.
+Rather than relying on the autogenerated `columns.py` file, we can manually update it e.g. to add a particular column.
 
 For example, to add `1558` (alcohol intake frequency), open `columns.py` and under the `COLUMNS` dictionary add:
 
@@ -120,8 +123,8 @@ Then after running `python filter_ukb.py...` your output CSV will have a column 
 | Never                      |
 | ...                        |
 
-### Specify particular renaming or relabelling 
-The tool automatically renames columns and recodes categorical variables.  This is done by looking at `Data_Dictionary_Showcase.csv` and `Codings_Showcase.csv`, files that can be downloaded from the UKB's website. 
+### Specifying particular renaming or relabelling 
+The tool automatically renames columns and recodes categorical variables.  This is using UK Biobank's Data Dictionary and coding schema (`Data_Dictionary_Showcase.csv` and `Codings_Showcase.csv`; available from UK Biobank's website). 
 
 For the column name parsing, it uses UKB's field description, which works reasonably well unless the description is very long. For example, `6153` (medication for cholesterol, blood pressure, diabetes, or take exogenous hormones) gets the mouthful `MedCholesterolBloodPressDiabetTakExogHormon`
 
