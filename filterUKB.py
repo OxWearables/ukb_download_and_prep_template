@@ -1,6 +1,6 @@
 """
-Edit columns.py to select the desired UKB columns to include and parse.
-Edit derived_columns.py to define new derived columns.
+Edit columns.json to select the desired UKB columns to include and parse.
+Edit derivedColumns.json to define new derived columns.
 See https://biobank.ndph.ox.ac.uk/showcase/search.cgi to search for field IDs
 """
 
@@ -10,15 +10,31 @@ from functools import reduce
 import nltk
 from nltk.corpus import stopwords
 import time
+import json
+import numpy as np
 
-from columns import COLUMNS
-from derived_columns import DERIVED_COLUMNS
+def concat_strings(df, sep="", fillna=np.nan):
+    """ Concatenate along each row of strings, e.g.
 
+    'a', 'b', 'c'        'abc'
+    'd', 'e', nan,  ->   'de'
+    'g', nan, 'i',       'gi'
+
+    """
+    result = df[df.columns[0]].str.cat([df[c] for c in df.columns[1:]], sep="__sep__", na_rep="__na__")
+    result = result.apply(lambda s: sep.join([w for w in s.split("__sep__") if w != "__na__"]))
+    result = result.replace("", fillna)
+    return result
+    
 pd.options.mode.chained_assignment = None
 
 
 def main(args):
 
+    COLUMNS = json.loads(open("columns.json").read())
+    if args.derived_columns:
+        DERIVED_COLUMNS = json.loads(open("derivedColumns.json").read())
+    
     # Download a required packages for parsing
     nltk.download('punkt')
     nltk.download('stopwords')
@@ -31,10 +47,21 @@ def main(args):
 
     column_parser = ColumnParser(args.datafile, args.codefile)
 
+    
     df_new = df[list(COLUMNS.keys())]
 
-    for col, info in COLUMNS.items():
+    if args.derived_columns:
+        for col, info in DERIVED_COLUMNS.items():
+            print(f'Deriving column {col}...', flush=True, end=" ")
+            before = time.time()
 
+            other_cols = info['columns']
+            func = eval(info['func'])
+            df_new[col] = func(df[other_cols])
+
+            print(f"({time.time()-before:.2f}s)")
+
+    for col, info in COLUMNS.items():
         before = time.time()
         print(f"Parsing column {col} ->", flush=True, end=" ")
 
@@ -54,17 +81,7 @@ def main(args):
 
         print(f"{colname} ({time.time()-before:.2f}s)")
 
-    if args.derived_columns:
-        for col, info in DERIVED_COLUMNS.items():
-
-            print(f'Deriving column {col}...', flush=True, end=" ")
-            before = time.time()
-
-            other_cols = info['columns']
-            func = info['func']
-            df_new[col] = func(df[other_cols])
-
-            print(f"({time.time()-before:.2f}s)")
+    
 
     print(f"Saving to {args.outfile}...", flush=True, end=" ")
     before = time.time()

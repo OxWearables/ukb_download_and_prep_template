@@ -1,5 +1,6 @@
 import numpy as np 
 import argparse
+import json
 
 parser = argparse.ArgumentParser(
         description="""A tool to help write columns labels for UK Biobank data""", add_help=True
@@ -17,10 +18,13 @@ with open(args.columns_text_file,
     data = file.readlines()
     data = [i.split('#', 1)[0].split(' ', 1)[0].split('\n', 1)[0] for i in data]
     data = [i for i in data if i != '' ]
-w = open("columns.py", "w" )
-w.write("import numpy as np \nCOLUMNS = {")
+
+d = "{"
 for i in data[0:-1]: 
-    w.write("'" + i + "-0.0':{},")
-w.write("'" + data[-1] + "-0.0':{}")
-w.write("}")
+    d += '"' + i + '-0.0":{} , '
+d += '"' + data[-1] + '-0.0":{}}'
+d = eval(d)
+
+with open("columns.json", "w") as f: 
+    json.dump(d,f )
 

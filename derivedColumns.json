@@ -1,0 +1,25 @@
+{   "DateOfBirth": {
+        "columns": ["34-0.0", "52-0.0"],
+        "func": "lambda df: concat_strings(df.astype('str'), sep='-')"
+    },
+
+    "DateOfDeath": {
+        "columns": ["40000-0.0", "40000-1.0"],
+        "func": "lambda df: df.astype('datetime64').min(axis=1)"
+    },
+
+    "SystolBloodPressur": {
+        "columns": ["4080-0.0", "4080-0.1", "93-0.0", "93-0.1"],
+        "func": "lambda df: df.mean(axis=1)"
+    },
+
+    "CauseOfDeath": {
+        "columns": ["40001-0.0", "40001-1.0"],
+        "func": "lambda df: concat_strings(df, sep=',')"
+    },
+
+    "AgeAtDeath": {
+        "columns": ["40007-0.0", "40007-1.0"],
+        "func": "lambda df: df.min(axis=1)"
+    }
+}
