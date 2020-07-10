@@ -1,0 +1,16 @@
+# DEMOGRAPHICS 
+31 # sex.31
+34 # yearBirth.34
+52 # monthBirth.52
+
+# SAMPLING 
+53 # testCenDate.53
+54 # testCen.54
+
+# BEHAVIOURAL 
+1558 # alchohol.1558
+
+# BIOMETRIC
+4080 # systolicBloodPressure.4080
+
+

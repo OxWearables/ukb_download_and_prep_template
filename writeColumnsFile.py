@@ -6,14 +6,14 @@ parser = argparse.ArgumentParser(
         description="""A tool to help write columns labels for UK Biobank data""", add_help=True
     )
 
-parser.add_argument('--columns_text_file', metavar='e.g. analysisCols.txt', type=str, default = "analysisCols.txt", 
+parser.add_argument('--columnsFile', metavar='e.g. analysisCols.txt', type=str, default = "analysisCols.txt", 
                             help="""The text file listing columns to include
                             """ )
 
 args = parser.parse_args()
 
 
-with open(args.columns_text_file,
+with open(args.columnsFile,
  'r') as file:
     data = file.readlines()
     data = [i.split('#', 1)[0].split(' ', 1)[0].split('\n', 1)[0] for i in data]

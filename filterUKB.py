@@ -31,9 +31,9 @@ pd.options.mode.chained_assignment = None
 
 def main(args):
 
-    COLUMNS = json.loads(open("columns.json").read())
-    if args.derived_columns:
-        DERIVED_COLUMNS = json.loads(open("derivedColumns.json").read())
+    COLUMNS = json.loads(open(args.columnsFile).read())
+    if args.derivedColumns:
+        DERIVED_COLUMNS = json.loads(open(args.derivedColumnsFile).read())
     
     # Download a required packages for parsing
     nltk.download('punkt')
@@ -50,7 +50,7 @@ def main(args):
     
     df_new = df[list(COLUMNS.keys())]
 
-    if args.derived_columns:
+    if args.derivedColumns:
         for col, info in DERIVED_COLUMNS.items():
             print(f'Deriving column {col}...', flush=True, end=" ")
             before = time.time()
@@ -67,12 +67,15 @@ def main(args):
 
         colname = info.get('name', True)
         drop_suffix = info.get('drop_suffix', True)
+        if (drop_suffix == "False"): 
+            drop_suffix = False
+
         replace_values = info.get('replace_values', True)
 
         if replace_values is True:
             replace_values = column_parser.parse_values(col)
         if replace_values is not None:
-            df_new[col].replace(replace_values, inplace=True)
+            df_new[col] = df_new[col].astype('str').replace(replace_values)
 
         if colname is True:
             colname = column_parser.parse_colname(col, drop_suffix)
@@ -114,10 +117,11 @@ class ColumnParser():
             coding = self.data_df[self.data_df['FieldID']==fieldID]['Coding'].values[0]
             values_and_meanings = self.code_df[self.code_df['Coding']==coding][['Value', 'Meaning']].values
             values, meanings = values_and_meanings[:,0], values_and_meanings[:,1]
-            try:
-                values = values.astype('int')
-            except ValueError:
-                pass
+            #try:
+            #    values = values.astype('int')
+            #except ValueError:
+            #    pass
+            values = values.astype('str')
             replace_values = dict(zip(values, meanings))
             return replace_values
 
@@ -153,7 +157,9 @@ if __name__ == '__main__':
     parser.add_argument('--datafile', default='Data_Dictionary_Showcase.csv')
     parser.add_argument('--codefile', default='Codings_Showcase.csv')
     parser.add_argument('--outfile', '-o', required=True)
-    parser.add_argument('--derived_columns', default = False)
+    parser.add_argument('--derivedColumns', default = False)
+    parser.add_argument('--derivedColumnsFile', default = "derivedColumns.json")
+    parser.add_argument('--columnsFile', default = "columns.json")
     args = parser.parse_args()
 
     main(args)
