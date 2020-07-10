@@ -77,11 +77,9 @@ for outcome in diseaseList:
    
    if args.incident_prevalent: 
         dAll[outcomeName + "-incident"] = 0
-        dAll.loc[(dAll[outcomeName] > dAll[args.date_column]) & \
-                (~dAll[outcomeName].isnull()), outcomeName + '-incident'] = 1
+        dAll.loc[(dAll[outcomeName] > dAll[args.date_column]) & (~dAll[outcomeName].isnull()), outcomeName + '-incident'] = 1
         dAll[outcomeName + "-prevalent"] = 0
-        dAll.loc[(dAll[outcomeName] <= dAll[args.date_column]) & \
-                (~dAll[outcomeName].isnull()), outcomeName + '-prevalent'] = 1
+        dAll.loc[(dAll[outcomeName] <= dAll[args.date_column]) & (~dAll[outcomeName].isnull()), outcomeName + '-prevalent'] = 1
    print(outcomeName, ', n = ', len(dAll[~dAll[outcomeName].isnull()])) 
 
 '''
