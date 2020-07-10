@@ -3,5 +3,6 @@
 *.enc_ukb
 !Data_Dictionary_Showcase.csv
 !Codings_Showcase.csv
+!test/test.csv
 columns.py
 *key*

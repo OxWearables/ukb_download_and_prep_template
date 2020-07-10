@@ -1,0 +1,5 @@
+{  "SystolBloodPressur": {
+        "columns": ["4080-0.0", "4080-0.1"],
+        "func": "lambda df: df.mean(axis=1)"
+    }
+}
