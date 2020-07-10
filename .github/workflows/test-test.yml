@@ -34,7 +34,7 @@ jobs:
     - name: Test filterUKB.py
       run: |
         python filterUKB.py test/test.csv -otest/test_out.csv --columnsFile test/columnsTestReplacement.json --derivedColumns True --derivedColumnsFile test/derivedColumns.json
-        diff -q test/test_ref.csv test/test_out.csv > same
-        echo(same)
+        diff -q test/test_ref.csv test/test_out.csv > same.txt
+        cat "same.txt"
         rm test/test_out.csv
         
