@@ -4,5 +4,6 @@
 !Data_Dictionary_Showcase.csv
 !Codings_Showcase.csv
 !test/test.csv
+!test/test_ref.csv
 columns.py
 *key*
