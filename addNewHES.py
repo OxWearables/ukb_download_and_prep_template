@@ -36,7 +36,7 @@ Read file of current data
 '''
 print('read ' + args.inCSV)
 dAll = pd.read_csv(args.inCSV)
-if ('eid' not in list(dAll.columns): 
+if ('eid' not in list(dAll.columns)): 
         sys.exit('inCSV must contain a participant ID column under \'eid\'')
 
 if args.incident_prevalent:
