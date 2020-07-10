@@ -43,7 +43,7 @@ if args.incident_prevalent:
         if (args.date_column not in list(dAll.columns)):
                 sys.exit('Date column needs to be a column of inCSV in order to define incident and prevalent disease.')
 
-        dAll[args.date_column] = pd.to_datetime(dAll[args.date_column]])
+        dAll[args.date_column] = pd.to_datetime(dAll[args.date_column])
 
 dAll = dAll.set_index('eid')
 
