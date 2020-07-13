@@ -24,7 +24,7 @@ Here, we discuss Hospital Episode Statistics: [ICD9/10 codes](https://www.who.in
 	  # Rename files if necessary to match the names used here
 
 	  # Call python script to merge files together and delete downloaded input files
-	  python mergeHESfiles.py ~/Downloads/hesin.txt ~/Downloads/hesin_diag.txt \
+	  python mergeHESfiles.py ~/Downloads/ukb.txt ~/Downloads/ukb_diag.txt \
 	  ~/Downloads/hesin_all.csv
 
 	 
