@@ -75,7 +75,14 @@ def main(args):
         if replace_values is True:
             replace_values = column_parser.parse_values(col)
         if replace_values is not None:
-            df_new[col] = df_new[col].astype('str').replace(replace_values)
+           # try:
+            df_new[col] = df_new[col].astype(str)
+            df_new[col] = df_new[col].str.rstrip('0').str.rstrip('.') # astype(float).round(decimals = 0).astype('str')
+            #except ValueError:
+             #   pass
+            print(replace_values)
+            print(df_new[col])
+            df_new[col] = df_new[col].astype(str).replace(replace_values)
 
         if colname is True:
             colname = column_parser.parse_colname(col, drop_suffix)
@@ -117,10 +124,6 @@ class ColumnParser():
             coding = self.data_df[self.data_df['FieldID']==fieldID]['Coding'].values[0]
             values_and_meanings = self.code_df[self.code_df['Coding']==coding][['Value', 'Meaning']].values
             values, meanings = values_and_meanings[:,0], values_and_meanings[:,1]
-            #try:
-            #    values = values.astype('int')
-            #except ValueError:
-            #    pass
             values = values.astype('str')
             replace_values = dict(zip(values, meanings))
             return replace_values

@@ -6,4 +6,6 @@
 !test/test.csv
 !test/test_ref.csv
 columns.py
+columns.json
 *key*
+*Rosemary*
