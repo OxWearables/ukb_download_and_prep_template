@@ -69,7 +69,7 @@ Therefore, the next step towards having ready-to-use data is to filter out some 
 
 1. Auto-generate a `columns.json` file from the text file of field IDs (in the format used in download_participant_data):
 ```Bash
-  $ python writeColumnsFile.py --columns_text_file analysisCols.txt 
+  $ python writeColumnsFile.py --columnsFile analysisCols.txt 
  ```
 2. Run:
 ```Bash
