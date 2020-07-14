@@ -75,13 +75,8 @@ def main(args):
         if replace_values is True:
             replace_values = column_parser.parse_values(col)
         if replace_values is not None:
-           # try:
             df_new[col] = df_new[col].astype(str)
-            df_new[col] = df_new[col].str.rstrip('0').str.rstrip('.') # astype(float).round(decimals = 0).astype('str')
-            #except ValueError:
-             #   pass
-            print(replace_values)
-            print(df_new[col])
+            df_new[col] = df_new[col].str.rstrip('0').str.rstrip('.')
             df_new[col] = df_new[col].astype(str).replace(replace_values)
 
         if colname is True:
