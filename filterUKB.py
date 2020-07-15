@@ -75,8 +75,8 @@ def main(args):
         if replace_values is True:
             replace_values = column_parser.parse_values(col)
         if replace_values is not None:
-            df_new[col] = df_new[col].astype(str)
-            df_new[col] = df_new[col].str.rstrip('0').str.rstrip('.')
+            #df_new[col] = df_new[col].astype(str)
+            df_new[col] = df_new[col].apply(lambda x : str(x).split('.', 1)[0])
             df_new[col] = df_new[col].astype(str).replace(replace_values)
 
         if colname is True:
