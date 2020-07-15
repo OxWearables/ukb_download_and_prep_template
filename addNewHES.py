@@ -40,7 +40,7 @@ if ('eid' not in list(dAll.columns)):
         sys.exit('inCSV must contain a participant ID column under \'eid\'')
 
 if args.incident_prevalent:
-        if (args.date_column not in list(dAll.columns)):
+        if (str(args.date_column) not in list(dAll.columns)):
                 sys.exit('Date column needs to be a column of inCSV in order to define incident and prevalent disease.')
 
         dAll[args.date_column] = pd.to_datetime(dAll[args.date_column])
