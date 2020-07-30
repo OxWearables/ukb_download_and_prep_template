@@ -3,460 +3,460 @@
         "desc": "",
         "icd10": "I00",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Rheumatic fever with heart involvement", 
         "desc": "",
         "icd10": "I01",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Rheumatic chorea", 
         "desc": "",
         "icd10": "I02",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Rheumatic mitral valve diseases", 
         "desc": "",
         "icd10": "I05",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Rheumatic aortic valve diseases", 
         "desc": "",
         "icd10": "I06",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Rheumatic tricuspid valve diseases", 
         "desc": "",
         "icd10": "I07",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Multiple valve diseases", 
         "desc": "",
         "icd10": "I08",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": " Other rheumatic heart diseases", 
         "desc": "",
         "icd10": "I09",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Essential (primary) hypertension", 
         "desc": "",
         "icd10": "I10",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Hypertensive heart disease", 
         "desc": "",
         "icd10": "I11",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Hypertensive renal disease", 
         "desc": "",
         "icd10": "I12",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Hypertensive heart and renal disease", 
         "desc": "",
         "icd10": "I13",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Secondary hypertension", 
         "desc": "",
         "icd10": "I15",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Hypertensive diseases", 
         "desc": "",
         "icd10": "I10|I11|I12|I13|I14|I15",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Angina pectoris", 
         "desc": "",
         "icd10": "I20",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Acute myocardial infarction", 
         "desc": "",
         "icd10": "I21",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Subsequent myocardial infarction", 
         "desc": "",
         "icd10": "I22",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Certain current complications following acute myocardial infarction", 
         "desc": "",
         "icd10": "I23",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Other acute ischaemic heart diseases", 
         "desc": "",
         "icd10": "I24",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Chronic ischaemic heart disease", 
         "desc": "",
         "icd10": "I25",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Pulmonary embolism", 
         "desc": "",
         "icd10": "I26",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Other pulmonary heart diseases", 
         "desc": "",
         "icd10": "I27",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Other diseases of pulmonary vessels", 
         "desc": "",
         "icd10": "I28",
         "icd9": "-" 
-    },    
+    , "level": "all"},    
 {
         "disease": "Acute pericarditis", 
         "desc": "",
         "icd10": "I30",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Other diseases of pericardium", 
         "desc": "",
         "icd10": "I31",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Pericarditis in diseases classified elsewhere", 
         "desc": "",
         "icd10": "I32",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Acute and subacute endocarditis", 
         "desc": "",
         "icd10": "I33",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Nonrheumatic mitral valve disorders", 
         "desc": "",
         "icd10": "I34",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Nonrheumatic aortic valve disorders", 
         "desc": "",
         "icd10": "I35",
         "icd9": "-" 
-    },    {
+    , "level": "all"},    {
         "disease": "Nonrheumatic tricuspid valve disorders", 
         "desc": "",
         "icd10": "I36",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Pulmonary valve disorders", 
         "desc": "",
         "icd10": "I37",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Endocarditis, valve unspecified", 
         "desc": "",
         "icd10": "I38",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Endocarditis and heart valve disorders in diseases classified elsewhere", 
         "desc": "",
         "icd10": "I39",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
    {
         "disease": "Acute myocarditis", 
         "desc": "",
         "icd10": "I40",
         "icd9": "-" 
-    },    
+    , "level": "all"},    
 {
         "disease": "Myocarditis in diseases classified elsewhere", 
         "desc": "",
         "icd10": "I41",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Cardiomyopathy", 
         "desc": "",
         "icd10": "I42",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Cardiomyopathy in diseases classified elsewhere", 
         "desc": "",
         "icd10": "I43",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Atrioventricular and left bundle-branch block", 
         "desc": "",
         "icd10": "I44",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other conduction disorders", 
         "desc": "",
         "icd10": "I45",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Cardiac arrest", 
         "desc": "",
         "icd10": "I46",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Paroxysmal tachycardia", 
         "desc": "",
         "icd10": "I47",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Atrial fibrillation and flutter", 
         "desc": "",
         "icd10": "I48",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other cardiac arrhythmias", 
         "desc": "",
         "icd10": "I49",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Heart failure", 
         "desc": "",
         "icd10": "I50",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Complications and ill-defined descriptions of heart disease", 
         "desc": "",
         "icd10": "I51",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other heart disorders in diseases classified elsewhere", 
         "desc": "",
         "icd10": "I52",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Subarachnoid haemorrhage", 
         "desc": "",
         "icd10": "I60",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Intracerebral haemorrhage", 
         "desc": "",
         "icd10": "I61",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other nontraumatic intracranial haemorrhage", 
         "desc": "",
         "icd10": "I62",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Cerebral infarction", 
         "desc": "",
         "icd10": "I63",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Stroke, not specifed as haemorrhage or infarction", 
         "desc": "",
         "icd10": "I64",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Occlusion and stenosis of precerebral arteries, not resulting in cerebral infarction", 
         "desc": "",
         "icd10": "I65",
         "icd9": "-" 
-    },
+    , "level": "all"},
 {
         "disease": "Occlusion and stenosis of cerebral arteries, not resulting in cerebral infarction", 
         "desc": "",
         "icd10": "I66",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other cerebrovascular diseases", 
         "desc": "",
         "icd10": "I67",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Cerebrovascular disorders in diseases classified elsewhere", 
         "desc": "",
         "icd10": "I68",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Sequelae of cerebrovascular disease", 
         "desc": "",
         "icd10": "I69",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Atherosclerosis", 
         "desc": "",
         "icd10": "I70",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Aortic aneurysm and dissection", 
         "desc": "",
         "icd10": "I71",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other aneurysm and dissection", 
         "desc": "",
         "icd10": "I72",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other peripheral vascular diseases", 
         "desc": "",
         "icd10": "I73",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Arterial embolism and thrombosis", 
         "desc": "",
         "icd10": "I74",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other disorders of arteries and arterioles", 
         "desc": "",
         "icd10": "I77",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Diseases of capillaries", 
         "desc": "",
         "icd10": "I78",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Disorders of arteries, arterioles and capillaries in diseases classified elsewhere", 
         "desc": "",
         "icd10": "I79",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Phlebitis and thrombophlebitis", 
         "desc": "",
         "icd10": "I80",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Portal vein thrombosis", 
         "desc": "",
         "icd10": "I81",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other venous embolism and thrombosis", 
         "desc": "",
         "icd10": "I82",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Varicose veins of lower extremeties", 
         "desc": "",
         "icd10": "I83",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Oesophageal varices", 
         "desc": "",
         "icd10": "I85",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Varicose veins of other sites", 
         "desc": "",
         "icd10": "I86",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other disorders of veins", 
         "desc": "",
         "icd10": "I87",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Nonspecific lymphadenitis", 
         "desc": "",
         "icd10": "I88",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other noninfective disorders fo lymphatic vessels and lymph nodes", 
         "desc": "",
         "icd10": "I89",
         "icd9": "-" 
-    },
+    , "level": "all"},
 {
         "disease": "Hypotension", 
         "desc": "",
         "icd10": "I95",
         "icd9": "-" 
-    },  
+    , "level": "all"},  
 {
         "disease": "Postprocedural disorders of circulatory system, not elsewhere classified", 
         "desc": "",
         "icd10": "I97",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other disorders of circulatory system in diseases classified elsewhere", 
         "desc": "",
         "icd10": "I98",
         "icd9": "-" 
-    }, 
+    , "level": "all"}, 
 {
         "disease": "Other and unspecified disorders of circulatory system", 
         "desc": "",
         "icd10": "I99",
         "icd9": "-" 
-    }
+    , "level": "all"}
 ]

@@ -42,8 +42,9 @@ if ('eid' not in list(dAll.columns)):
 if args.incident_prevalent:
         if (str(args.date_column) not in list(dAll.columns)):
                 sys.exit('Date column needs to be a column of inCSV in order to define incident and prevalent disease.')
-
+        print(dAll[args.date_column])
         dAll[args.date_column] = pd.to_datetime(dAll[args.date_column])
+        print(dAll[args.date_column])
 
 dAll = dAll.set_index('eid')
 
@@ -68,11 +69,19 @@ dHES.loc[dHES['epistart'].isnull(), 'epistart'] = dHES['disdate']
 # check for history of specific diseases
 for outcome in diseaseList:
    outcomeName = cleanHESstr(outcome['disease'])
-   e = dHES[['eid','epistart']]\
-          [(dHES['diag_icd10'].str.contains(outcome['icd10'], na=False)) | \
-           (dHES['diag_icd9'].str.contains(outcome['icd9'], na=False)) ]
+   if outcome['level'] ==  "all": 
+        e = dHES[['eid','epistart']]\
+                [(dHES['diag_icd10'].str.contains(outcome['icd10'], na=False)) | \
+                (dHES['diag_icd9'].str.contains(outcome['icd9'], na=False)) ]
+   if outcome['level'] == "primary": 
+        dHESPrimary = dHES[dHES['level'] == 1]
+        e = dHESPrimary[['eid','epistart']]\
+                [(dHESPrimary['diag_icd10'].str.contains(outcome['icd10'], na=False)) | \
+                (dHESPrimary['diag_icd9'].str.contains(outcome['icd9'], na=False)) ]
+
    outcomePts = e[['epistart']].groupby(e['eid']).min()
    outcomePts.columns = [outcomeName]
+   print(outcomeName)
    dAll = dAll.join(outcomePts)
    
    if args.incident_prevalent: 
