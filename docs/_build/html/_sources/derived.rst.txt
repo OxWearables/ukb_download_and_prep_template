@@ -1,12 +1,15 @@
-# Adding derived columns
+======================
+Adding derived columns
+======================
+
 You might have to create new columns based on operations on other columns. To use this option, `filterUKB.py` must be run with the optional argument `--derived_columns True`. 
 
 The `derivedColumns.json` file is used to specify the operations used to create columns. The file included in this folder contains some common options to derive. 
 
 For example, there are (confusingly) three columns corresponding to date of death: `40001-0.0`, `40001-1.0` and `40001-2.0`. It makes sense that the earliest of these is the date of death. To do this, open `derivedColumns.json` and add:
 
-```
-    {
+
+.. code-block:: 
         # ...
 
         'DateOfDeath': {

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Extracting participant data to .csv format from .enc_ukb format &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,7 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="install.html" />
+    <link rel="next" title="Relabelling and recoding a participant data .csv file" href="relabel.html" />
+    <link rel="prev" title="Installation" href="install.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,27 +33,38 @@
 
           <div class="body" role="main">
             
-  <p># Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format
-To access a particular set of variables in <cite>.csv</cite> format, we extract them from the <cite>12345.enc_ukb</cite> file (which contains all variables in the application).</p>
-<p>### Steps
-1. Find the [UK Biobank Data Field IDs](<a class="reference external" href="http://biobank.ctsu.ox.ac.uk/crystal/search.cgi">http://biobank.ctsu.ox.ac.uk/crystal/search.cgi</a>) of interest (e.g. [smoking status is 20116](<a class="reference external" href="http://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20116">http://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20116</a>)).
-2. If it is not already there, append this field to the file <cite>analysisCols.txt</cite>
-3. Extract data to <cite>.csv</cite> format:</p>
+  <div class="section" id="extracting-participant-data-to-csv-format-from-enc-ukb-format">
+<h1>Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format<a class="headerlink" href="#extracting-participant-data-to-csv-format-from-enc-ukb-format" title="Permalink to this headline">¶</a></h1>
+<p>To access a particular set of variables in <cite>.csv</cite> format, we extract them from the <cite>12345.enc_ukb</cite> file (which contains all variables in the application).</p>
+</div>
+<div class="section" id="steps">
+<h1>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Find the [UK Biobank Data Field IDs](<a class="reference external" href="http://biobank.ctsu.ox.ac.uk/crystal/search.cgi">http://biobank.ctsu.ox.ac.uk/crystal/search.cgi</a>) of interest (e.g. [smoking status is 20116](<a class="reference external" href="http://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20116">http://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20116</a>)).</p></li>
+<li><p>If it is not already there, append this field to the file <cite>analysisCols.txt</cite></p></li>
+<li><p>Extract data to <cite>.csv</cite> format:</p></li>
+</ol>
 <blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">`Bash</span>
-<span class="pre">$</span> <span class="pre">helpers/linux_tools/ukb_conv</span> <span class="pre">path_to_data/ukb12345.enc_ukb</span> <span class="pre">csv</span> <span class="pre">-ianalysisCols.txt</span>
-<span class="pre">#</span> <span class="pre">output</span> <span class="pre">=</span> <span class="pre">path_to_data/ukb12345.csv</span>
-<span class="pre">`</span></code></p>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb csv -ianalysisCols.txt
+output = path_to_data/ukb12345.csv</p>
 </div></blockquote>
-<dl class="simple">
-<dt>### Notes</dt><dd><ul class="simple">
+</div>
+<div class="section" id="notes">
+<h1>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
 <li><p>These steps can be done in Windows, Linux or MacOS, but the helper files you need will be slightly different (the tools are in <cite>helpers/linux_tools</cite> for Linux/MacOS and <cite>helpers/windows_tools</cite> for Windows).</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
 <li><p>This may fail initially because <cite>analysisCols.txt</cite> contains a field ID which is not present in the copy of the dataset you are working with. These field IDs should be removed from <cite>analysisCols.txt</cite>.</p></li>
 <li><p>How long this extraction will take depends on the number of columns you are extracting, but it is not unusual for it to take several hours. If you just want to add a couple of columns, it is quicker to list them in a separate file (e.g. <cite>analysisColsMini.txt</cite>), extract a small <cite>.csv</cite> file and merge with the existing file on participant IDs.</p></li>
-<li><p>Up to this point we are using only standard UK Biobank functionality, so [UK Biobank’s guide to accessing the data](<a class="reference external" href="https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf">https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf</a>) may be helpful.</p></li>
+<li><p>Here we are using only standard UK Biobank functionality, so [UK Biobank’s guide to accessing the data](<a class="reference external" href="https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf">https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf</a>) may be helpful.</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
+</div>
 
 
           </div>
@@ -71,12 +83,30 @@ To access a particular set of variables in <cite>.csv</cite> format, we extract 
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="install.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Previous: <a href="install.html" title="previous chapter">Installation</a></li>
+      <li>Next: <a href="relabel.html" title="next chapter">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
   </ul></li>
 </ul>
 </div>

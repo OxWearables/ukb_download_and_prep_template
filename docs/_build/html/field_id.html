@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>} &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Including field ID suffixes &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="}" href="disable_parse.html" />
-    <link rel="prev" title="}" href="multiple_inputs.html" />
+    <link rel="next" title="&lt;no title&gt;" href="disable_parse.html" />
+    <link rel="prev" title="Working with multiple ukbXXX.csv files" href="multiple_inputs.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,21 +33,9 @@
 
           <div class="body" role="main">
             
-  <p># Including field ID suffixes
-When automatically parsing the field ID, by default it will drop the suffixes <cite>-X.Y</cite> (indicating visit number and array index, for example <cite>-0.0</cite>, <cite>-1.0</cite>, etc). If you need to keep these, set the key <cite>drop_suffix=False</cite> and it will append the suffixes as <cite>_X_Y</cite>. For example,</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
-{</p>
-<blockquote>
-<div><p># …</p>
-<dl class="simple">
-<dt>“1558-0.0”:{</dt><dd><p>“drop_suffix”: False,</p>
-</dd>
-</dl>
-<p>},</p>
-<p># …</p>
-</div></blockquote>
-<div class="section" id="id3">
-<h1>}<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="including-field-id-suffixes">
+<h1>Including field ID suffixes<a class="headerlink" href="#including-field-id-suffixes" title="Permalink to this headline">¶</a></h1>
+<p>When automatically parsing the field ID, by default it will drop the suffixes <cite>-X.Y</cite> (indicating visit number and array index, for example <cite>-0.0</cite>, <cite>-1.0</cite>, etc). If you need to keep these, set the key <cite>drop_suffix=False</cite> and it will append the suffixes as <cite>_X_Y</cite>. For example,</p>
 <p>will produce the column name <cite>AlcoholIntakFrequenc_0_0</cite>.</p>
 </div>
 
@@ -69,11 +57,21 @@ When automatically parsing the field ID, by default it will drop the suffixes <c
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="specify.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">}</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disable_parse.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Including field ID suffixes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
 </ul>
 
 <div class="relations">
@@ -81,8 +79,8 @@ When automatically parsing the field ID, by default it will drop the suffixes <c
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
   <li><a href="advanced.html">&lt;no title&gt;</a><ul>
-      <li>Previous: <a href="multiple_inputs.html" title="previous chapter">}</a></li>
-      <li>Next: <a href="disable_parse.html" title="next chapter">}</a></li>
+      <li>Previous: <a href="multiple_inputs.html" title="previous chapter">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+      <li>Next: <a href="disable_parse.html" title="next chapter">&lt;no title&gt;</a></li>
   </ul></li>
   </ul></li>
 </ul>
