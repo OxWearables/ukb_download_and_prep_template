@@ -1,4 +1,6 @@
-# Relabelling and recoding a participant data `.csv` file 
+=======================================================
+Relabelling and recoding a participant data `.csv` file
+=======================================================
 Your `ukb12345.csv` from the last step looks something like this:
 
 | eid     | 31-0.0 | 34-0.0 | 54-0.0 |   ...
@@ -17,8 +19,9 @@ Your `ukb12345.csv` from the last step looks something like this:
 
 Therefore, the next step towards having ready-to-use data is to filter out some columns and parse the field IDs and categorical codes. (While this can be done manually, the automated tools in this repo aim to make it quicker and easier.)
 
-### Steps
-
+======
+Steps
+======
 1. Auto-generate a `columns.json` file from the text file of field IDs (in the format used in download_participant_data):
 ```Bash
   $ python writeColumnsFile.py --columnsFile analysisCols.txt 
