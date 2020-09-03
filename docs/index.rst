@@ -7,14 +7,15 @@ Documentation for ukb_download_and_prep_template
 ==========================================================
 
 .. toctree::
-   :maxdepth: 2
+   : maxdepth: 2
+   :captions: Contents:
 
-   install.rst
-   extract.rst
-   relabel.rst
-   hes.rst
-   advanced.rst
-   download.rst
+   install
+   extract
+   relabel
+   hes
+   advanced
+   download
 
 * :ref:`genindex`
 * :ref:`modindex`
