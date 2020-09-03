@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="advanced.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="relabel.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Adding Hospital Episode Statistics on particular diseases
+In this section we will add columns on disease diagnoses in hospital to an existing participant dataset (<cite>input.csv</cite>).</p>
+<dl class="simple">
+<dt>You will need:</dt><dd><ul class="simple">
+<li><p><cite>hesin_all.csv</cite>: this is a file containing Hospital Episode Statistics data for all participants.</p></li>
+<li><p><cite>icdGroups.json</cite>: this is a JSON file containing descriptions of required HES codes (as in the examples in this folder).</p></li>
+<li><p>An existing dataset <cite>input.csv</cite> (which might be <cite>outputFilename.csv</cite> from the last section).</p></li>
+<li><p>If you want to define prevalent and incident disease, <cite>input.csv</cite> should also contain a date column which will be used to define this.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Then run:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">python3</span> <span class="pre">addNewHES.py</span> <span class="pre">input.csv</span> <span class="pre">hesin_all.csv</span> <span class="pre">output.csv</span> <span class="pre">icdGroups.json</span> <span class="pre">--incident_prevalent</span> <span class="pre">True</span> <span class="pre">--date_column</span> <span class="pre">'name_of_date_column'</span>
+<span class="pre">`</span></code>
+This will add a column containing the date of first instance of the given disease definition, as well as a binary column indicating incident disease and a binary column indicating prevalent disease (relative to the date in the specified date column).
+Note the JSON file should have <cite>level</cite> specified. <cite>“level”: “primary”</cite> identifies only diagnoses which were the primary diagnosis in the admission, whereas <cite>“level”: “all”</cite> identifies all diagnoses.
+<strong>Note:</strong> This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields [40001 and 4002](<a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093">https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093</a>)) .</p>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">ukb_download_and_prep_template</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specify.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_id.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disable_parse.html">}</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="relabel.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="advanced.html" title="next chapter">&lt;no title&gt;</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Rosemary Walmsley, Shing Chan, Aiden Doherty.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/hes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,17 @@
+The ukb_download_and_prep_template API reference
+=================================================
+.. automodule:: ukb_download_and_prep_template
+:members:
+The “download” module
+------------------
+.. automodule:: ukb_download_and_prep_template.download
+:members:
+The “download_health_data” module
+------------------
+.. automodule:: ukb_download_and_prep_template.download.download_health_data
+:members:
+The “download_participant_data” module
+------------------
+.. automodule:: ukb_download_and_prep_template.download.download_participant_data
+:members:
+
