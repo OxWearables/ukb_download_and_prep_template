@@ -1,20 +1,21 @@
-# Installation 
+============
+Installation
+============
 
 To use this repo, run: 
-  ```Bash
-  $ git clone git@github.com:activityMonitoring/ukb_download_and_prep_template
-  ```
- 
+  .. code-block::
+  git clone git@github.com:activityMonitoring/ukb_download_and_prep_template
+   
 This repo requires `pandas` and `nltk`. If you are using an Anaconda installation of Python, these are included. Otherwise, run: 
-  ```Bash
-  $ pip install pandas
-  $ pip install nltk
-  ```
+  .. code-block::
+  pip install pandas
+  pip install nltk
+  
 
 Navigate to the repo: 
-  ```Bash
-  $ cd ukb_download_and_prep_template
-  ```
+  .. code-block::
+  cd ukb_download_and_prep_template
+ 
   
 This usage tutorial also assumes you have downloaded and extracted a `.enc_ukb` file (participant data) and a `hesin_all.csv` file (health record data) from UK Biobank. The [download](https://github.com/activityMonitoring/ukb_download_and_prep_template/download) folder contains guidance on how to download these. 
 
