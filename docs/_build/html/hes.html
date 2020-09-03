@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Adding Hospital Episode Statistics on particular diseases &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="&lt;no title&gt;" href="advanced.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="relabel.html" />
+    <link rel="prev" title="Relabelling and recoding a participant data .csv file" href="relabel.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,8 +33,9 @@
 
           <div class="body" role="main">
             
-  <p>Adding Hospital Episode Statistics on particular diseases
-In this section we will add columns on disease diagnoses in hospital to an existing participant dataset (<cite>input.csv</cite>).</p>
+  <div class="section" id="adding-hospital-episode-statistics-on-particular-diseases">
+<h1>Adding Hospital Episode Statistics on particular diseases<a class="headerlink" href="#adding-hospital-episode-statistics-on-particular-diseases" title="Permalink to this headline">¶</a></h1>
+<p>In this section we will add columns on disease diagnoses in hospital to an existing participant dataset (<cite>input.csv</cite>).</p>
 <dl class="simple">
 <dt>You will need:</dt><dd><ul class="simple">
 <li><p><cite>hesin_all.csv</cite>: this is a file containing Hospital Episode Statistics data for all participants.</p></li>
@@ -45,12 +46,14 @@ In this section we will add columns on disease diagnoses in hospital to an exist
 </dd>
 </dl>
 <p>Then run:
-<code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">python3</span> <span class="pre">addNewHES.py</span> <span class="pre">input.csv</span> <span class="pre">hesin_all.csv</span> <span class="pre">output.csv</span> <span class="pre">icdGroups.json</span> <span class="pre">--incident_prevalent</span> <span class="pre">True</span> <span class="pre">--date_column</span> <span class="pre">'name_of_date_column'</span>
-<span class="pre">`</span></code>
-This will add a column containing the date of first instance of the given disease definition, as well as a binary column indicating incident disease and a binary column indicating prevalent disease (relative to the date in the specified date column).
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">addNewHES</span><span class="o">.</span><span class="n">py</span> <span class="nb">input</span><span class="o">.</span><span class="n">csv</span> <span class="n">hesin_all</span><span class="o">.</span><span class="n">csv</span> <span class="n">output</span><span class="o">.</span><span class="n">csv</span> <span class="n">icdGroups</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">incident_prevalent</span> <span class="kc">True</span> <span class="o">--</span><span class="n">date_column</span> <span class="s1">&#39;name_of_date_column</span>
+</pre></div>
+</div>
+<p>This will add a column containing the date of first instance of the given disease definition, as well as a binary column indicating incident disease and a binary column indicating prevalent disease (relative to the date in the specified date column).
 Note the JSON file should have <cite>level</cite> specified. <cite>“level”: “primary”</cite> identifies only diagnoses which were the primary diagnosis in the admission, whereas <cite>“level”: “all”</cite> identifies all diagnoses.
-<strong>Note:</strong> This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields [40001 and 4002](<a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093">https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093</a>)) .</p>
+<strong>Note:</strong> This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields <cite>40001 and 4002 &lt;https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093&gt;</cite>) .</p>
+</div>
 
 
           </div>
@@ -69,19 +72,31 @@ Note the JSON file should have <cite>level</cite> specified. <cite>“level”: 
 
 
 <h3>Navigation</h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="specify.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="field_id.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disable_parse.html">}</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding Hospital Episode Statistics on particular diseases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="disable_parse.html">Disabling parsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="relabel.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Previous: <a href="relabel.html" title="previous chapter">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
       <li>Next: <a href="advanced.html" title="next chapter">&lt;no title&gt;</a></li>
   </ul></li>
 </ul>

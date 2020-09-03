@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Working with multiple ukbXXX.csv files &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Download participant data &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Including field ID suffixes" href="field_id.html" />
-    <link rel="prev" title="Adding derived columns" href="derived.html" />
+    <link rel="next" title="Download health data" href="health.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="download.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,15 +33,15 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="working-with-multiple-ukbxxx-csv-files">
-<h1>Working with multiple <cite>ukbXXX.csv</cite> files<a class="headerlink" href="#working-with-multiple-ukbxxx-csv-files" title="Permalink to this headline">¶</a></h1>
-<p>Sometimes we have multiple UKB files because we requested more variables later during the project and these extra variables come separately. In that case, the tool can take multiple UKB files:
+  <div class="section" id="download-participant-data">
+<h1>Download participant data<a class="headerlink" href="#download-participant-data" title="Permalink to this headline">¶</a></h1>
+<p>You will download an encrypted <cite>ukb12345.enc</cite> file. This needs to be decrypted using the key provided by UK Biobank in an email e.g. for research application 6789 and copy number 12345 we would decrypt to an ‘unpacked’ file:
 .. code-block:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">filterUKB</span><span class="o">.</span><span class="n">py</span> <span class="n">ukb12345</span><span class="o">.</span><span class="n">csv</span> <span class="n">ukb54321</span><span class="o">.</span><span class="n">csv</span> <span class="o">-</span><span class="n">o</span> <span class="n">outputFilename</span><span class="o">.</span><span class="n">csv</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">helpers</span><span class="o">/</span><span class="n">linux_tools</span><span class="o">/</span><span class="n">ukb_unpack</span> <span class="n">path_to_data</span><span class="o">/</span><span class="n">ukb12345</span><span class="o">.</span><span class="n">enc</span> <span class="n">k6789r12345</span><span class="o">.</span><span class="n">key</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">path_to_data</span><span class="o">/</span><span class="n">ukb12345</span><span class="o">.</span><span class="n">enc_ukb</span>
 </pre></div>
 </div>
-<p>When automatically parsing the field ID, by default it will drop the suffixes <cite>-X.Y</cite> (indicating visit number and array index, for example <cite>-0.0</cite>, <cite>-1.0</cite>, etc). If you need to keep these, set the key <cite>drop_suffix=False</cite> and it will append the suffixes as <cite>_X_Y</cite>. For example,</p>
-<p>will produce the column name <cite>AlcoholIntakFrequenc_0_0</cite>.</p>
+<p>Specific fields of interest can be extracted from the <cite>.enc_ukb</cite> file (see main repo).</p>
 </div>
 
 
@@ -71,10 +71,10 @@
 <li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
 <li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Download participant data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
 </ul>
@@ -83,9 +83,9 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="advanced.html">&lt;no title&gt;</a><ul>
-      <li>Previous: <a href="derived.html" title="previous chapter">Adding derived columns</a></li>
-      <li>Next: <a href="field_id.html" title="next chapter">Including field ID suffixes</a></li>
+  <li><a href="download.html">&lt;no title&gt;</a><ul>
+      <li>Previous: <a href="download.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="health.html" title="next chapter">Download health data</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -120,7 +120,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/multiple_inputs.rst.txt"
+      <a href="_sources/participant.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

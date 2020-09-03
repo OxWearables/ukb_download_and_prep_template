@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>An alternative for R/ SAS/ Stata users &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,7 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="}" href="disable_parse.html" />
+    <link rel="next" title="&lt;no title&gt;" href="download.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="disable_parse.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,17 +33,12 @@
 
           <div class="body" role="main">
             
-  <p># An alternative for R/ SAS/ Stata users
-If you prefer to use R, SAS or Stata for data preparation, UK Biobank has a built-in tool to facilitate this. However, note this tool doesn’t have the column-renaming functionality and additional flexibility on recoding implemented as part of this tool.</p>
+  <div class="section" id="an-alternative-for-r-sas-stata-users">
+<h1>An alternative for R/ SAS/ Stata users<a class="headerlink" href="#an-alternative-for-r-sas-stata-users" title="Permalink to this headline">¶</a></h1>
+<p>If you prefer to use R, SAS or Stata for data preparation, UK Biobank has a built-in tool to facilitate this. However, note this tool doesn’t have the column-renaming functionality and additional flexibility on recoding implemented as part of this tool.</p>
 <p>For example, to use R:</p>
-<dl class="simple">
-<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>Bash</dt><dd><p>$ helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb r -ianalysisCols.txt
-# output = path_to_data/ukb12345.r
-# output = path_to_data/ukb12345.tab</p>
-</dd>
-</dl>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a>`
-<cite>ukb12345.r</cite> can be opened and run in R: it will automatically recode - but not rename - categorical columns.</p>
+<p><cite>ukb12345.r</cite> can be opened and run in R: it will automatically recode - but not rename - categorical columns.</p>
+</div>
 
 
           </div>
@@ -61,12 +57,22 @@ If you prefer to use R, SAS or Stata for data preparation, UK Biobank has a buil
 
 
 <h3>Navigation</h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="specify.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="field_id.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disable_parse.html">}</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">An alternative for R/ SAS/ Stata users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
 </ul>
 
 <div class="relations">
@@ -74,7 +80,8 @@ If you prefer to use R, SAS or Stata for data preparation, UK Biobank has a buil
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
   <li><a href="advanced.html">&lt;no title&gt;</a><ul>
-      <li>Previous: <a href="disable_parse.html" title="previous chapter">}</a></li>
+      <li>Previous: <a href="disable_parse.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="download.html" title="next chapter">&lt;no title&gt;</a></li>
   </ul></li>
   </ul></li>
 </ul>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Adding derived columns &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="}" href="multiple_inputs.html" />
-    <link rel="prev" title="}" href="specify.html" />
+    <link rel="next" title="Working with multiple ukbXXX.csv files" href="multiple_inputs.html" />
+    <link rel="prev" title="Specifying particular renaming or recoding" href="specify.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,31 +33,17 @@
 
           <div class="body" role="main">
             
-  <p># Adding derived columns
-You might have to create new columns based on operations on other columns. To use this option, <cite>filterUKB.py</cite> must be run with the optional argument <cite>–derived_columns True</cite>.</p>
+  <div class="section" id="adding-derived-columns">
+<h1>Adding derived columns<a class="headerlink" href="#adding-derived-columns" title="Permalink to this headline">¶</a></h1>
+<p>You might have to create new columns based on operations on other columns. To use this option, <cite>filterUKB.py</cite> must be run with the optional argument <cite>–derived_columns True</cite>.</p>
 <p>The <cite>derivedColumns.json</cite> file is used to specify the operations used to create columns. The file included in this folder contains some common options to derive.</p>
 <p>For example, there are (confusingly) three columns corresponding to date of death: <cite>40001-0.0</cite>, <cite>40001-1.0</cite> and <cite>40001-2.0</cite>. It makes sense that the earliest of these is the date of death. To do this, open <cite>derivedColumns.json</cite> and add:</p>
-<dl>
-<dt><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></dt><dd><dl>
-<dt>{</dt><dd><p># …</p>
-<dl class="simple">
-<dt>‘DateOfDeath’: {</dt><dd><p>‘columns’: [‘40000-0.0’, ‘40000-1.0’, ‘40000-2.0’],
-‘func’: lambda df: df.astype(‘datetime64’).min(axis=1),</p>
-</dd>
-</dl>
-<p>},</p>
-<p># …</p>
-</dd>
-</dl>
-<p>}</p>
-</dd>
-</dl>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a>`
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
 The <cite>columns</cite> key defines which columns of the raw UKB table to select, and <cite>func</cite> defines the function to operate on the resulting subtable. Alternatively, you can also ommit <cite>columns</cite> and write <cite>func</cite> directly as <cite>lambda df: df[[‘40000-0.0’, ‘40000-1.0’, ‘40000-2.0’]].astype(‘datetime64’).min(axis=1)</cite>. Your output CSV will now have a column that looks like this:</p>
 <div class="line-block">
 <div class="line">DateOfDeath                |</div>
 </div>
-<p><a href="#id7"><span class="problematic" id="id8">|----------------------------|</span></a>
+<p><a href="#id3"><span class="problematic" id="id4">|----------------------------|</span></a>
 | 2013-09-15                 |
 | NaN                        |
 | NaN                        |
@@ -65,6 +51,7 @@ The <cite>columns</cite> key defines which columns of the raw UKB table to selec
 | NaN                        |
 | …                        |</p>
 <p>See <cite>derivedColumns.json</cite> for more examples.</p>
+</div>
 
 
           </div>
@@ -83,12 +70,22 @@ The <cite>columns</cite> key defines which columns of the raw UKB table to selec
 
 
 <h3>Navigation</h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="specify.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="field_id.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disable_parse.html">}</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding derived columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
 </ul>
 
 <div class="relations">
@@ -96,8 +93,8 @@ The <cite>columns</cite> key defines which columns of the raw UKB table to selec
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
   <li><a href="advanced.html">&lt;no title&gt;</a><ul>
-      <li>Previous: <a href="specify.html" title="previous chapter">}</a></li>
-      <li>Next: <a href="multiple_inputs.html" title="next chapter">}</a></li>
+      <li>Previous: <a href="specify.html" title="previous chapter">Specifying particular renaming or recoding</a></li>
+      <li>Next: <a href="multiple_inputs.html" title="next chapter">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
   </ul></li>
   </ul></li>
 </ul>

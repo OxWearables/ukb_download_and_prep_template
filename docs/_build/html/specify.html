@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>} &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Specifying particular renaming or recoding &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="derived.html" />
-    <link rel="prev" title="}" href="manual_cols.html" />
+    <link rel="next" title="Adding derived columns" href="derived.html" />
+    <link rel="prev" title="Manually adding a field to columns.json" href="manual_cols.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,48 +33,23 @@
 
           <div class="body" role="main">
             
-  <p># Specifying particular renaming or recoding
-The tool automatically renames columns and recodes categorical variables.  This is using UK Biobank’s Data Dictionary and coding schema (<cite>Data_Dictionary_Showcase.csv</cite> and <cite>Codings_Showcase.csv</cite>; available from UK Biobank’s website).</p>
+  <div class="section" id="specifying-particular-renaming-or-recoding">
+<h1>Specifying particular renaming or recoding<a class="headerlink" href="#specifying-particular-renaming-or-recoding" title="Permalink to this headline">¶</a></h1>
+<p>The tool automatically renames columns and recodes categorical variables.  This is using UK Biobank’s Data Dictionary and coding schema (<cite>Data_Dictionary_Showcase.csv</cite> and <cite>Codings_Showcase.csv</cite>; available from UK Biobank’s website).</p>
 <p>For the column name parsing, it uses UKB’s field description, which works reasonably well unless the description is very long. For example, <cite>6153</cite> (medication for cholesterol, blood pressure, diabetes, or take exogenous hormones) gets the mouthful <cite>MedCholesterolBloodPressDiabetTakExogHormon</cite></p>
 <p>It is possible to customize the column name by specifying a <cite>name</cite> key. It is also possible to customize the categorical values (e.g. if you want to recategorize) by specifying a <cite>replace_values</cite> key. In the last example, further editing <cite>columns.json</cite> to say:</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
-{</p>
-<blockquote>
-<div><p># …</p>
-<dl>
-<dt>“1558-0.0”:{</dt><dd><p>‘name’: ‘Booze’,
-‘replace_values’: {</p>
-<blockquote>
-<div><blockquote>
-<div><p>1: “weekly”,  # Daily or almost daily
-2: “weekly”,  # 3-4 times a week
-3: “weekly”,  # 1-2 times a week
-4: “rarely”,  # 1-3 times a month
-5: “rarely”,  # Special occasions only
-6: “never”,   # Never</p>
-</div></blockquote>
-<p>-3: np.nan,    # Prefer not to answer</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>},</p>
-<p># …</p>
-</div></blockquote>
-<div class="section" id="id3">
-<h1>}<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
-<p>and running <cite>filterUKB.py</cite> as above will convert the previous column to</p>
-<div class="line-block">
-<div class="line">Booze                      |</div>
-</div>
-<p><a href="#id4"><span class="problematic" id="id5">|----------------------------|</span></a>
+<p>and running <cite>filterUKB.py</cite> as above will convert the previous column to
++—————————-+
+| Booze                      |
++—————————-+
 | weekly                     |
 | rarely                     |
 | rarely                     |
 | rarely                     |
 | weekly                     |
 | never                      |
-| …                        |</p>
+| …                        |
++—————————-+</p>
 </div>
 
 
@@ -95,11 +70,21 @@ The tool automatically renames columns and recodes categorical variables.  This 
 
 <h3>Navigation</h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">}</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="field_id.html">}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="disable_parse.html">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
 </ul>
 
 <div class="relations">
@@ -107,8 +92,8 @@ The tool automatically renames columns and recodes categorical variables.  This 
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
   <li><a href="advanced.html">&lt;no title&gt;</a><ul>
-      <li>Previous: <a href="manual_cols.html" title="previous chapter">}</a></li>
-      <li>Next: <a href="derived.html" title="next chapter">&lt;no title&gt;</a></li>
+      <li>Previous: <a href="manual_cols.html" title="previous chapter">Manually adding a field to <cite>columns.json</cite></a></li>
+      <li>Next: <a href="derived.html" title="next chapter">Adding derived columns</a></li>
   </ul></li>
   </ul></li>
 </ul>

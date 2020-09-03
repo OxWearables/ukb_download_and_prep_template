@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Working with multiple ukbXXX.csv files &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Download health data &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,7 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Including field ID suffixes" href="field_id.html" />
-    <link rel="prev" title="Adding derived columns" href="derived.html" />
+    <link rel="prev" title="Download participant data" href="participant.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,15 +32,41 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="working-with-multiple-ukbxxx-csv-files">
-<h1>Working with multiple <cite>ukbXXX.csv</cite> files<a class="headerlink" href="#working-with-multiple-ukbxxx-csv-files" title="Permalink to this headline">¶</a></h1>
-<p>Sometimes we have multiple UKB files because we requested more variables later during the project and these extra variables come separately. In that case, the tool can take multiple UKB files:
-.. code-block:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">filterUKB</span><span class="o">.</span><span class="n">py</span> <span class="n">ukb12345</span><span class="o">.</span><span class="n">csv</span> <span class="n">ukb54321</span><span class="o">.</span><span class="n">csv</span> <span class="o">-</span><span class="n">o</span> <span class="n">outputFilename</span><span class="o">.</span><span class="n">csv</span>
+  <div class="section" id="download-health-data">
+<h1>Download health data<a class="headerlink" href="#download-health-data" title="Permalink to this headline">¶</a></h1>
+<p>UK Biobank benefits from passive follow-up via health record linkage.</p>
+<p>To understand the available datasets:
+- Here is [a good summary of what health outcomes data exists and pros and cons of using different aspects](<a class="reference external" href="http://biobank.ndph.ox.ac.uk/showcase/showcase/docs/HealthOutcomesOverview.pdf">http://biobank.ndph.ox.ac.uk/showcase/showcase/docs/HealthOutcomesOverview.pdf</a>) (up-to-date as of Sep 2019).
+- Note the [dates for which HES data are available](<a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=Data_providers_and_dates">https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=Data_providers_and_dates</a>).</p>
+<p>Here, we discuss Hospital Episode Statistics: [ICD9/10 codes](<a class="reference external" href="https://www.who.int/classifications/icd/icdonlineversions/en/">https://www.who.int/classifications/icd/icdonlineversions/en/</a>) from hospital admissions. If you require Operations and Procedures codes or primary care codes, these need to be processed separately.</p>
+</div>
+<div class="section" id="download-steps">
+<h1>Download steps<a class="headerlink" href="#download-steps" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p>Follow the [UKB guide to access the data portal](<a class="reference external" href="http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf">http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf</a>).</p></li>
+<li><dl class="simple">
+<dt>It is easiest to download the whole table for the relevant data type (e.g. hesin is required for using all the others, hesin_diag provides diagnosis codes, hesin_oper operation codes).</dt><dd><ul class="simple">
+<li><p>You can do this by putting the name of the data table in the box provided in the Table Download tab.</p></li>
+<li><p>If you wish to use the data portal, these SQL statements will download all diagnosis codes from hesin_diag and hospital episode information from hesin:
+.. code-block::
+SELECT eid, ins_index, admidate, disdate, epiend, epistart FROM hesin # then click ‘Download’
+SELECT * FROM hesin_diag # click ‘Download’</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Join files together to ensure secondary ICD9/10 codes are recorded, then upload as master csv</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>When automatically parsing the field ID, by default it will drop the suffixes <cite>-X.Y</cite> (indicating visit number and array index, for example <cite>-0.0</cite>, <cite>-1.0</cite>, etc). If you need to keep these, set the key <cite>drop_suffix=False</cite> and it will append the suffixes as <cite>_X_Y</cite>. For example,</p>
-<p>will produce the column name <cite>AlcoholIntakFrequenc_0_0</cite>.</p>
+<p># Rename files if necessary to match the names used here</p>
+<p># Call python script to merge files together and delete downloaded input files
+python mergeHESfiles.py ~/Downloads/ukb.txt ~/Downloads/ukb_diag.txt ~/Downloads/hesin_all.csv</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></p>
+</dd>
+</dl>
+</li>
+</ol>
 </div>
 
 
@@ -71,21 +96,20 @@
 <li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
 <li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Download health data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#download-steps">Download steps</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="advanced.html">&lt;no title&gt;</a><ul>
-      <li>Previous: <a href="derived.html" title="previous chapter">Adding derived columns</a></li>
-      <li>Next: <a href="field_id.html" title="next chapter">Including field ID suffixes</a></li>
+  <li><a href="download.html">&lt;no title&gt;</a><ul>
+      <li>Previous: <a href="participant.html" title="previous chapter">Download participant data</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -120,7 +144,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/multiple_inputs.rst.txt"
+      <a href="_sources/health.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

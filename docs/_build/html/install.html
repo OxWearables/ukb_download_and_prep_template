@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Installation &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,8 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="extract.html" />
-    <link rel="prev" title="Welcome to ukb_download_and_prep_template’s documentation!" href="index.html" />
+    <link rel="next" title="Extracting participant data to .csv format from .enc_ukb format" href="extract.html" />
+    <link rel="prev" title="Documentation for ukb_download_and_prep_template" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,24 +33,29 @@
 
           <div class="body" role="main">
             
-  <p># Installation</p>
-<dl class="simple">
-<dt>To use this repo, run:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">`Bash</span>
-<span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:activityMonitoring/ukb_download_and_prep_template</span>
-<span class="pre">`</span></code></p>
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt>To use this repo, run:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:activityMonitoring/ukb_download_and_prep_template</p>
 </dd>
-<dt>This repo requires <cite>pandas</cite> and <cite>nltk</cite>. If you are using an Anaconda installation of Python, these are included. Otherwise, run:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">`Bash</span>
-<span class="pre">$</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span>
-<span class="pre">$</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nltk</span>
-<span class="pre">`</span></code></p>
+<dt>This repo requires <cite>pandas</cite> and <cite>nltk</cite>. If you are using an Anaconda installation of Python, these are included. Otherwise, run:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>pip install pandas
+pip install nltk</p>
 </dd>
-<dt>Navigate to the repo:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">`Bash</span>
-<span class="pre">$</span> <span class="pre">cd</span> <span class="pre">ukb_download_and_prep_template</span>
-<span class="pre">`</span></code></p>
+<dt>Navigate to the repo:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>cd ukb_download_and_prep_template</p>
 </dd>
 </dl>
 <p>This usage tutorial also assumes you have downloaded and extracted a <cite>.enc_ukb</cite> file (participant data) and a <cite>hesin_all.csv</cite> file (health record data) from UK Biobank. The [download](<a class="reference external" href="https://github.com/activityMonitoring/ukb_download_and_prep_template/download">https://github.com/activityMonitoring/ukb_download_and_prep_template/download</a>) folder contains guidance on how to download these.</p>
 <p><strong>Note on applications and copies:</strong> A UK Biobank dataset is associated with a numbered application and, within that application, a numbered copy (this is so subsequent additions of variables to the same application can be distinguished). Different applications have access to different sets of variables. Copies from the same application can be merged, but different applications have different participant IDs, so cannot be merged. Throughout this folder we assume we are using copy number 12345 from application 6789.</p>
+</div>
 
 
           </div>
@@ -69,13 +74,30 @@
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to ukb_download_and_prep_template’s documentation!</a></li>
-      <li>Next: <a href="extract.html" title="next chapter">&lt;no title&gt;</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">Documentation for ukb_download_and_prep_template</a></li>
+      <li>Next: <a href="extract.html" title="next chapter">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
   </ul></li>
 </ul>
 </div>
