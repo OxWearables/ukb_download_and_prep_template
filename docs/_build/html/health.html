@@ -15,7 +15,6 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Download participant data" href="participant.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -36,14 +35,13 @@
 <h1>Download health data<a class="headerlink" href="#download-health-data" title="Permalink to this headline">¶</a></h1>
 <p>UK Biobank benefits from passive follow-up via health record linkage.</p>
 <p>To understand the available datasets:
-- Here is [a good summary of what health outcomes data exists and pros and cons of using different aspects](<a class="reference external" href="http://biobank.ndph.ox.ac.uk/showcase/showcase/docs/HealthOutcomesOverview.pdf">http://biobank.ndph.ox.ac.uk/showcase/showcase/docs/HealthOutcomesOverview.pdf</a>) (up-to-date as of Sep 2019).
-- Note the [dates for which HES data are available](<a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=Data_providers_and_dates">https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=Data_providers_and_dates</a>).</p>
-<p>Here, we discuss Hospital Episode Statistics: [ICD9/10 codes](<a class="reference external" href="https://www.who.int/classifications/icd/icdonlineversions/en/">https://www.who.int/classifications/icd/icdonlineversions/en/</a>) from hospital admissions. If you require Operations and Procedures codes or primary care codes, these need to be processed separately.</p>
-</div>
+- Here is <cite>a good summary of what health outcomes data exists and pros and cons of using different aspects &lt;http://biobank.ndph.ox.ac.uk/showcase/showcase/docs/HealthOutcomesOverview.pdf&gt;</cite> (up-to-date as of Sep 2019).
+- Note the <cite>dates for which HES data are available &lt;https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=Data_providers_and_dates&gt;</cite>.</p>
+<p>Here, we discuss Hospital Episode Statistics: <cite>ICD9/10 codes &lt;https://www.who.int/classifications/icd/icdonlineversions/en/&gt;</cite> from hospital admissions. If you require Operations and Procedures codes or primary care codes, these need to be processed separately.</p>
 <div class="section" id="download-steps">
-<h1>Download steps<a class="headerlink" href="#download-steps" title="Permalink to this headline">¶</a></h1>
+<h2>Download steps<a class="headerlink" href="#download-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p>Follow the [UKB guide to access the data portal](<a class="reference external" href="http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf">http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf</a>).</p></li>
+<li><p>Follow the <cite>UKB guide to access the data portal &lt;http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf&gt;</cite>.</p></li>
 <li><dl class="simple">
 <dt>It is easiest to download the whole table for the relevant data type (e.g. hesin is required for using all the others, hesin_diag provides diagnosis codes, hesin_oper operation codes).</dt><dd><ul class="simple">
 <li><p>You can do this by putting the name of the data table in the box provided in the Table Download tab.</p></li>
@@ -68,6 +66,7 @@ python mergeHESfiles.py ~/Downloads/ukb.txt ~/Downloads/ukb_diag.txt ~/Downloads
 </li>
 </ol>
 </div>
+</div>
 
 
           </div>
@@ -86,31 +85,11 @@ python mergeHESfiles.py ~/Downloads/ukb.txt ~/Downloads/ukb_diag.txt ~/Downloads
 
 
 <h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
-<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Download health data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#download-steps">Download steps</a></li>
-</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="download.html">&lt;no title&gt;</a><ul>
-      <li>Previous: <a href="participant.html" title="previous chapter">Download participant data</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>

@@ -10,12 +10,10 @@ Documentation for ukb_download_and_prep_template
    : maxdepth: 2
    :captions: Contents:
 
-   install
-   extract
-   relabel
-   hes
-   advanced
-   download
+   started.rst
+   core.rst
+   advanced.rst
+   download.rst
 
 * :ref:`genindex`
 * :ref:`modindex`

@@ -1,7 +1,7 @@
 ###################################################################
 Extracting participant data to `.csv` format from `.enc_ukb` format
 ###################################################################
-i
+
 To access a particular set of variables in `.csv` format, we extract them from the `12345.enc_ukb` file (which contains all variables in the application). 
 
 ======
