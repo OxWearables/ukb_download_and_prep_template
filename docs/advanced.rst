@@ -1,3 +1,6 @@
+#######################
+Advanced usage
+#######################
 .. toctree:: 
    manual_cols.rst
    specify.rst

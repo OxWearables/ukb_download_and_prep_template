@@ -15,8 +15,6 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="hes.html" />
-    <link rel="prev" title="Extracting participant data to .csv format from .enc_ukb format" href="extract.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -35,39 +33,39 @@
             
   <div class="section" id="relabelling-and-recoding-a-participant-data-csv-file">
 <h1>Relabelling and recoding a participant data <cite>.csv</cite> file<a class="headerlink" href="#relabelling-and-recoding-a-participant-data-csv-file" title="Permalink to this headline">¶</a></h1>
-<p>Your <cite>ukb12345.csv</cite> from the last step looks something like this:</p>
-<div class="line-block">
-<div class="line">eid     | 31-0.0 | 34-0.0 | 54-0.0 |   …</div>
-</div>
-<p><a href="#id11"><span class="problematic" id="id12">|---------|</span></a>——–<a href="#id13"><span class="problematic" id="id14">|--------|</span></a>——–<a href="#id1"><span class="problematic" id="id2">|</span></a>——–
+<p>Your <cite>ukb12345.csv</cite> from the last step looks something like this:
++———+——–+——–+——–+——–+
+| eid     | 31-0.0 | 34-0.0 | 54-0.0 |   …
++———+——–+——–+——–+——–+
 | 4987419 | 0      | 1944   | 11016  |   …
 | 2898413 | 0      | 1956   | 11009  |   …
 | 1049655 | 1      | 1947   | 11010  |   …
 | 1892589 | 1      | 1941   | 11011  |   …
-| 2449164 | 1      | 1958   | 11010  |   …</p>
+| 2449164 | 1      | 1958   | 11010  |   …
++———+——–+——–+——–+——–+</p>
 <p>(This is fake data - Any resemblance to real UK Biobank participants is coincidental!)</p>
 <ul class="simple">
-<li><p>The column names are given as field IDs, and you would need to browse <a class="reference external" href="https://biobank.ndph.ox.ac.uk/showcase/search.cgi">https://biobank.ndph.ox.ac.uk/showcase/search.cgi</a> to get their meanings. For example, <cite>31-0.0</cite> is sex, <cite>34-0.0</cite> is year of birth, and <cite>54-0.0</cite> is assessment center.</p></li>
+<li><p>The column names are given as field IDs, and you would need to browse <cite>&lt;https://biobank.ndph.ox.ac.uk/showcase/search.cgi&gt;</cite> to get their meanings. For example, <cite>31-0.0</cite> is sex, <cite>34-0.0</cite> is year of birth, and <cite>54-0.0</cite> is assessment center.</p></li>
 <li><p>If a field is categorical then its categories are coded e.g. in sex <cite>0</cite> means female and <cite>1</cite> means male, and in assessment center <cite>11010</cite> is Leeds and <cite>11009</cite> is Newcastle.</p></li>
 <li><p>You may have hundreds or thousands of these columns.</p></li>
 </ul>
 <p>Therefore, the next step towards having ready-to-use data is to filter out some columns and parse the field IDs and categorical codes. (While this can be done manually, the automated tools in this repo aim to make it quicker and easier.)</p>
-</div>
 <div class="section" id="steps">
-<h1>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h1>
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
 <p>1. Auto-generate a <cite>columns.json</cite> file from the text file of field IDs (in the format used in download_participant_data):
-<a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a>Bash</p>
+<a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>Bash</p>
 <blockquote>
 <div><blockquote>
 <div><p>$ python writeColumnsFile.py –columnsFile analysisCols.txt</p>
 </div></blockquote>
-<p><a href="#id7"><span class="problematic" id="id8">``</span></a><a href="#id9"><span class="problematic" id="id10">`</span></a></p>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
 </div></blockquote>
 <p>2. Run:
 <code class="docutils literal notranslate"><span class="pre">`Bash</span>
 <span class="pre">$</span> <span class="pre">python</span> <span class="pre">filterUKB.py</span> <span class="pre">ukb12345.csv</span> <span class="pre">-o</span> <span class="pre">outputFilename.csv</span>
 <span class="pre">`</span></code>
-If you want to customise the behaviour or add subsequent columns manually, see [Advanced usage](<a class="reference external" href="https://github.com/activityMonitoring/ukb_download_and_prep_template#5-advanced-usage">https://github.com/activityMonitoring/ukb_download_and_prep_template#5-advanced-usage</a>).</p>
+If you want to customise the behaviour or add subsequent columns manually, see the advanced usage options.</p>
+</div>
 </div>
 
 
@@ -87,30 +85,11 @@ If you want to customise the behaviour or add subsequent columns manually, see [
 
 
 <h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#steps">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
-<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
-</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="extract.html" title="previous chapter">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
-      <li>Next: <a href="hes.html" title="next chapter">&lt;no title&gt;</a></li>
   </ul></li>
 </ul>
 </div>

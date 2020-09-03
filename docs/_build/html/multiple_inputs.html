@@ -15,8 +15,6 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Including field ID suffixes" href="field_id.html" />
-    <link rel="prev" title="Adding derived columns" href="derived.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -40,8 +38,6 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">filterUKB</span><span class="o">.</span><span class="n">py</span> <span class="n">ukb12345</span><span class="o">.</span><span class="n">csv</span> <span class="n">ukb54321</span><span class="o">.</span><span class="n">csv</span> <span class="o">-</span><span class="n">o</span> <span class="n">outputFilename</span><span class="o">.</span><span class="n">csv</span>
 </pre></div>
 </div>
-<p>When automatically parsing the field ID, by default it will drop the suffixes <cite>-X.Y</cite> (indicating visit number and array index, for example <cite>-0.0</cite>, <cite>-1.0</cite>, etc). If you need to keep these, set the key <cite>drop_suffix=False</cite> and it will append the suffixes as <cite>_X_Y</cite>. For example,</p>
-<p>will produce the column name <cite>AlcoholIntakFrequenc_0_0</cite>.</p>
 </div>
 
 
@@ -61,32 +57,11 @@
 
 
 <h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html">Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html#steps">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extract.html#notes">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <cite>.csv</cite> file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="relabel.html#steps">Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
-<li class="toctree-l1"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="participant.html">Download participant data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="health.html">Download health data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="health.html#download-steps">Download steps</a></li>
-</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="advanced.html">&lt;no title&gt;</a><ul>
-      <li>Previous: <a href="derived.html" title="previous chapter">Adding derived columns</a></li>
-      <li>Next: <a href="field_id.html" title="next chapter">Including field ID suffixes</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>

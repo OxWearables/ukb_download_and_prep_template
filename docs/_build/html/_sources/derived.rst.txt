@@ -19,16 +19,17 @@ For example, there are (confusingly) three columns corresponding to date of deat
 
         # ...
     }
-```
-The `columns` key defines which columns of the raw UKB table to select, and `func` defines the function to operate on the resulting subtable. Alternatively, you can also ommit `columns` and write `func` directly as `lambda df: df[['40000-0.0', '40000-1.0', '40000-2.0']].astype('datetime64').min(axis=1)`. Your output CSV will now have a column that looks like this:
 
+The `columns` key defines which columns of the raw UKB table to select, and `func` defines the function to operate on the resulting subtable. Alternatively, you can also ommit `columns` and write `func` directly as `lambda df: df[['40000-0.0', '40000-1.0', '40000-2.0']].astype('datetime64').min(axis=1)`. Your output CSV will now have a column that looks like this:
++----------------------------+
 | DateOfDeath                |
-|----------------------------|
++----------------------------+
 | 2013-09-15                 |
 | NaN                        |
 | NaN                        |
 | 2015-02-01                 |
 | NaN                        |
 | ...                        |
++----------------------------+
 
 See `derivedColumns.json` for more examples.
