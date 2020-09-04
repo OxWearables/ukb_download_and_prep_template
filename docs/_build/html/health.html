@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Download health data &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Downloading health data &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,6 +15,7 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Extracting participant data to .csv format from .enc_ukb format" href="extract.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,38 +32,39 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="download-health-data">
-<h1>Download health data<a class="headerlink" href="#download-health-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="downloading-health-data">
+<h1>Downloading health data<a class="headerlink" href="#downloading-health-data" title="Permalink to this headline">¶</a></h1>
 <p>UK Biobank benefits from passive follow-up via health record linkage.</p>
 <p>To understand the available datasets:
-- Here is <cite>a good summary of what health outcomes data exists and pros and cons of using different aspects &lt;http://biobank.ndph.ox.ac.uk/showcase/showcase/docs/HealthOutcomesOverview.pdf&gt;</cite> (up-to-date as of Sep 2019).
-- Note the <cite>dates for which HES data are available &lt;https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=Data_providers_and_dates&gt;</cite>.</p>
-<p>Here, we discuss Hospital Episode Statistics: <cite>ICD9/10 codes &lt;https://www.who.int/classifications/icd/icdonlineversions/en/&gt;</cite> from hospital admissions. If you require Operations and Procedures codes or primary care codes, these need to be processed separately.</p>
-<div class="section" id="download-steps">
-<h2>Download steps<a class="headerlink" href="#download-steps" title="Permalink to this headline">¶</a></h2>
+- Here is <a class="reference external" href="http://biobank.ndph.ox.ac.uk/showcase/showcase/docs/HealthOutcomesOverview.pdf">a good summary of what health outcomes data exists and pros and cons of using different aspects</a> (up-to-date as of Sep 2019).
+- Note the <a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=Data_providers_and_dates">dates for which HES data are available</a>.</p>
+<p>Here, we discuss Hospital Episode Statistics: <a class="reference external" href="https://www.who.int/classifications/icd/icdonlineversions/en/">ICD9/10 codes</a> from hospital admissions. If you require Operations and Procedures codes or primary care codes, these need to be processed separately.</p>
+<div class="section" id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p>Follow the <cite>UKB guide to access the data portal &lt;http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf&gt;</cite>.</p></li>
-<li><dl class="simple">
-<dt>It is easiest to download the whole table for the relevant data type (e.g. hesin is required for using all the others, hesin_diag provides diagnosis codes, hesin_oper operation codes).</dt><dd><ul class="simple">
+<li><p>Follow the <a class="reference external" href="http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf">UKB guide to access the data portal</a>.</p></li>
+<li><dl>
+<dt>It is easiest to download the whole table for the relevant data type (e.g. hesin is required for using all the others, hesin_diag provides diagnosis codes, hesin_oper operation codes).</dt><dd><ul>
 <li><p>You can do this by putting the name of the data table in the box provided in the Table Download tab.</p></li>
-<li><p>If you wish to use the data portal, these SQL statements will download all diagnosis codes from hesin_diag and hospital episode information from hesin:
-.. code-block::
-SELECT eid, ins_index, admidate, disdate, epiend, epistart FROM hesin # then click ‘Download’
-SELECT * FROM hesin_diag # click ‘Download’</p></li>
+<li><p>If you wish to use the data portal, these SQL statements will download all diagnosis codes from <code class="code docutils literal notranslate"><span class="pre">hesin_diag</span></code> and hospital episode information from <code class="code docutils literal notranslate"><span class="pre">hesin:</span></code></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">eid</span><span class="p">,</span> <span class="n">ins_index</span><span class="p">,</span> <span class="n">admidate</span><span class="p">,</span> <span class="n">disdate</span><span class="p">,</span> <span class="n">epiend</span><span class="p">,</span> <span class="n">epistart</span> <span class="k">FROM</span> <span class="n">hesin</span> <span class="o">#</span> <span class="k">then</span> <span class="n">click</span> <span class="s1">&#39;Download&#39;</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">hesin_diag</span> <span class="o">#</span> <span class="n">click</span> <span class="s1">&#39;Download&#39;</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt>Join files together to ensure secondary ICD9/10 codes are recorded, then upload as master csv</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<li><p>Join files together in preparation for future use.</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> Rename files <span class="k">if</span> necessary to match the names used here
+<span class="gp">#</span> Call python script to merge files together and delete downloaded input files
+<span class="go">python mergeHESfiles.py ~/Downloads/ukb.txt ~/Downloads/ukb_diag.txt \</span>
+<span class="go">~/Downloads/hesin_all.csv</span>
 </pre></div>
 </div>
-<p># Rename files if necessary to match the names used here</p>
-<p># Call python script to merge files together and delete downloaded input files
-python mergeHESfiles.py ~/Downloads/ukb.txt ~/Downloads/ukb_diag.txt ~/Downloads/hesin_all.csv</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></p>
-</dd>
-</dl>
+</div></blockquote>
 </li>
 </ol>
 </div>
@@ -85,11 +87,28 @@ python mergeHESfiles.py ~/Downloads/ukb.txt ~/Downloads/ukb_diag.txt ~/Downloads
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="download.html">Downloading data</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="participant.html">Downloading participant data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extract.html">Extracting participant data to <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> format from <code class="code docutils literal notranslate"><span class="pre">.enc_ukb</span></code> format</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Downloading health data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="download.html">Downloading data</a><ul>
+      <li>Previous: <a href="extract.html" title="previous chapter">Extracting participant data to <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> format from <code class="code docutils literal notranslate"><span class="pre">.enc_ukb</span></code> format</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

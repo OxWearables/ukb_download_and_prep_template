@@ -5,10 +5,11 @@ If you prefer to use R, SAS or Stata for data preparation, UK Biobank has a buil
 
 For example, to use R: 
 
-.. code-block:: 
-  helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb r -ianalysisCols.txt
+.. code-block:: console
+ 
+  download/helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb r -ianalysisCols.txt
   # output = path_to_data/ukb12345.r
   # output = path_to_data/ukb12345.tab
    
-`ukb12345.r` can be opened and run in R: it will automatically recode - but not rename - categorical columns.  
+:code:`ukb12345.r` can be opened and run in R: it will automatically recode - but not rename - categorical columns.  
 

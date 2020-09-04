@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Download participant data &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
+    <title>Downloading participant data &#8212; ukb_download_and_prep_template 0.0-0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -15,6 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extracting participant data to .csv format from .enc_ukb format" href="extract.html" />
+    <link rel="prev" title="Downloading data" href="download.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,15 +33,15 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="download-participant-data">
-<h1>Download participant data<a class="headerlink" href="#download-participant-data" title="Permalink to this headline">¶</a></h1>
-<p>You will download an encrypted <cite>ukb12345.enc</cite> file. This needs to be decrypted using the key provided by UK Biobank in an email e.g. for research application 6789 and copy number 12345 we would decrypt to an ‘unpacked’ file:
-.. code-block:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">helpers</span><span class="o">/</span><span class="n">linux_tools</span><span class="o">/</span><span class="n">ukb_unpack</span> <span class="n">path_to_data</span><span class="o">/</span><span class="n">ukb12345</span><span class="o">.</span><span class="n">enc</span> <span class="n">k6789r12345</span><span class="o">.</span><span class="n">key</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">path_to_data</span><span class="o">/</span><span class="n">ukb12345</span><span class="o">.</span><span class="n">enc_ukb</span>
+  <div class="section" id="downloading-participant-data">
+<h1>Downloading participant data<a class="headerlink" href="#downloading-participant-data" title="Permalink to this headline">¶</a></h1>
+<p>You will download an encrypted <code class="code docutils literal notranslate"><span class="pre">ukb12345.enc</span></code> file. This needs to be decrypted using the key provided by UK Biobank in an email e.g. for research application 6789 and copy number 12345 we would decrypt to an ‘unpacked’ file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">download</span><span class="o">/</span><span class="n">helpers</span><span class="o">/</span><span class="n">linux_tools</span><span class="o">/</span><span class="n">ukb_unpack</span> <span class="n">path_to_data</span><span class="o">/</span><span class="n">ukb12345</span><span class="o">.</span><span class="n">enc</span> <span class="n">k6789r12345</span><span class="o">.</span><span class="n">key</span>
+<span class="n">download</span><span class="o">/</span><span class="n">helpers</span><span class="o">/</span><span class="n">linux_tools</span><span class="o">/</span><span class="n">ukb_unpack</span> <span class="n">path_to_data</span><span class="o">/</span><span class="n">ukb12345</span><span class="o">.</span><span class="n">enc</span> <span class="n">k6789r12345</span><span class="o">.</span><span class="n">key</span>
+<span class="c1"># output = path_to_data/ukb12345.enc_ukb</span>
 </pre></div>
 </div>
-<p>Specific fields of interest can be extracted from the <cite>.enc_ukb</cite> file (see main repo).</p>
+<p>Specific fields of interest can be extracted from the <code class="code docutils literal notranslate"><span class="pre">.enc_ukb</span></code> file (see main repo).</p>
 </div>
 
 
@@ -59,11 +61,26 @@
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="download.html">Downloading data</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Downloading participant data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extract.html">Extracting participant data to <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> format from <code class="code docutils literal notranslate"><span class="pre">.enc_ukb</span></code> format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="health.html">Downloading health data</a></li>
+</ul>
+</li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="download.html">Downloading data</a><ul>
+      <li>Previous: <a href="download.html" title="previous chapter">Downloading data</a></li>
+      <li>Next: <a href="extract.html" title="next chapter">Extracting participant data to <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> format from <code class="code docutils literal notranslate"><span class="pre">.enc_ukb</span></code> format</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

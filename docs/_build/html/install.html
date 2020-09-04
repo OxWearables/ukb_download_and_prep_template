@@ -15,6 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic usage" href="core.html" />
+    <link rel="prev" title="Getting started" href="started.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,25 +35,20 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<dl>
-<dt>To use this repo, run:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<p>To use this repo, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone git@github.com:activityMonitoring/ukb_download_and_prep_template</span>
 </pre></div>
 </div>
-<p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:activityMonitoring/ukb_download_and_prep_template</p>
-</dd>
-<dt>This repo requires <cite>pandas</cite> and <cite>nltk</cite>. If you are using an Anaconda installation of Python, these are included. Otherwise, run:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<p>This repo requires <code class="code docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="code docutils literal notranslate"><span class="pre">nltk</span></code>. If you are using an Anaconda installation of Python, these are included. Otherwise, run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install pandas</span>
+<span class="go">pip install nltk</span>
 </pre></div>
 </div>
-<p>pip install pandas
-pip install nltk</p>
-</dd>
-<dt>Navigate to the repo:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<p>Navigate to the repo:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd ukb_download_and_prep_template</span>
 </pre></div>
 </div>
-<p>cd ukb_download_and_prep_template</p>
-</dd>
-</dl>
-<p>This usage tutorial also assumes you have downloaded and extracted a <cite>.enc_ukb</cite> file (participant data) and a <cite>hesin_all.csv</cite> file (health record data) from UK Biobank. The [download](<a class="reference external" href="https://github.com/activityMonitoring/ukb_download_and_prep_template/download">https://github.com/activityMonitoring/ukb_download_and_prep_template/download</a>) folder contains guidance on how to download these.</p>
+<p>This usage tutorial also assumes you have downloaded and extracted a <code class="code docutils literal notranslate"><span class="pre">.enc_ukb</span></code> file (participant data) and a <code class="code docutils literal notranslate"><span class="pre">hesin_all.csv</span></code> file (health record data - see the section on downloading health data). The <a class="reference external" href="https://github.com/activityMonitoring/ukb_download_and_prep_template/download">download</a> folder contains guidance on how to download these.</p>
 <p><strong>Note on applications and copies:</strong> A UK Biobank dataset is associated with a numbered application and, within that application, a numbered copy (this is so subsequent additions of variables to the same application can be distinguished). Different applications have access to different sets of variables. Copies from the same application can be merged, but different applications have different participant IDs, so cannot be merged. Throughout this folder we assume we are using copy number 12345 from application 6789.</p>
 </div>
 
@@ -72,11 +69,24 @@ pip install nltk</p>
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="started.html">Getting started</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Downloading data</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="started.html">Getting started</a><ul>
+      <li>Previous: <a href="started.html" title="previous chapter">Getting started</a></li>
+      <li>Next: <a href="core.html" title="next chapter">Basic usage</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

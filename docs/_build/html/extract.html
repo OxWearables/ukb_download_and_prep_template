@@ -15,6 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Downloading health data" href="health.html" />
+    <link rel="prev" title="Downloading participant data" href="participant.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,35 +34,30 @@
           <div class="body" role="main">
             
   <div class="section" id="extracting-participant-data-to-csv-format-from-enc-ukb-format">
-<h1>Extracting participant data to <cite>.csv</cite> format from <cite>.enc_ukb</cite> format<a class="headerlink" href="#extracting-participant-data-to-csv-format-from-enc-ukb-format" title="Permalink to this headline">¶</a></h1>
-<p>To access a particular set of variables in <cite>.csv</cite> format, we extract them from the <cite>12345.enc_ukb</cite> file (which contains all variables in the application).</p>
+<h1>Extracting participant data to <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> format from <code class="code docutils literal notranslate"><span class="pre">.enc_ukb</span></code> format<a class="headerlink" href="#extracting-participant-data-to-csv-format-from-enc-ukb-format" title="Permalink to this headline">¶</a></h1>
+<p>To access a particular set of variables in <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> format, we extract them from the <code class="code docutils literal notranslate"><span class="pre">12345.enc_ukb</span></code> file (which contains all variables in the application).</p>
 <div class="section" id="steps">
 <h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>Find the <cite>UK Biobank Data Field IDs &lt;http://biobank.ctsu.ox.ac.uk/crystal/search.cgi&gt;</cite> of interest (e.g. <cite>smoking status is 20116 &lt;http://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20116&gt;</cite>).</p></li>
-<li><p>If it is not already there, append this field to the file <cite>analysisCols.txt</cite></p></li>
-<li><p>Extract data to <cite>.csv</cite> format:</p></li>
+<li><p>Find the <a class="reference external" href="http://biobank.ctsu.ox.ac.uk/crystal/search.cgi">UK Biobank Data Field IDs</a> of interest (e.g. <a class="reference external" href="http://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=20116">smoking status is 20116</a>).</p></li>
+<li><p>If it is not already there, append this field to the file <code class="code docutils literal notranslate"><span class="pre">analysisCols.txt</span></code></p></li>
+<li><p>Extract data to <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> format:</p></li>
 </ol>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">download/helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb csv -ianalysisCols.txt</span>
+<span class="gp">#</span> <span class="nv">output</span> <span class="o">=</span> path_to_data/ukb12345.csv
 </pre></div>
 </div>
-<p>helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb csv -ianalysisCols.txt
-output = path_to_data/ukb12345.csv</p>
 </div></blockquote>
 </div>
 <div class="section" id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>These steps can be done in Windows, Linux or MacOS, but the helper files you need will be slightly different (the tools are in <cite>helpers/linux_tools</cite> for Linux/MacOS and <cite>helpers/windows_tools</cite> for Windows).</p></li>
+<li><p>These steps can be done in Windows, Linux or MacOS, but the helper files you need will be slightly different (the tools are in <code class="code docutils literal notranslate"><span class="pre">download/helpers/linux_tools</span></code> for Linux/MacOS and <code class="code docutils literal notranslate"><span class="pre">download/helpers/windows_tools</span></code> for Windows).</p></li>
+<li><p>This may fail initially because <code class="code docutils literal notranslate"><span class="pre">analysisCols.txt</span></code> contains a field ID which is not present in the copy of the dataset you are working with. These field IDs should be removed from <code class="code docutils literal notranslate"><span class="pre">analysisCols.txt</span></code>.</p></li>
+<li><p>How long this extraction will take depends on the number of columns you are extracting, but it is not unusual for it to take several hours. If you just want to add a couple of columns, it is quicker to list them in a separate file (e.g. <code class="code docutils literal notranslate"><span class="pre">analysisColsMini.txt</span></code>), extract a small <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> file and merge with the existing file on participant IDs.</p></li>
+<li><p>Here we are using only standard UK Biobank functionality, so <a class="reference external" href="https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf">UK Biobank’s guide to accessing the data</a> may be helpful.</p></li>
 </ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>This may fail initially because <cite>analysisCols.txt</cite> contains a field ID which is not present in the copy of the dataset you are working with. These field IDs should be removed from <cite>analysisCols.txt</cite>.</p></li>
-<li><p>How long this extraction will take depends on the number of columns you are extracting, but it is not unusual for it to take several hours. If you just want to add a couple of columns, it is quicker to list them in a separate file (e.g. <cite>analysisColsMini.txt</cite>), extract a small <cite>.csv</cite> file and merge with the existing file on participant IDs.</p></li>
-<li><p>Here we are using only standard UK Biobank functionality, so <cite>UK Biobank’s guide to accessing the data &lt;https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf&gt;</cite> may be helpful.</p></li>
-</ul>
-</div></blockquote>
 </div>
 </div>
 
@@ -81,11 +78,30 @@ output = path_to_data/ukb12345.csv</p>
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="download.html">Downloading data</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="participant.html">Downloading participant data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Extracting participant data to <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> format from <code class="code docutils literal notranslate"><span class="pre">.enc_ukb</span></code> format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="health.html">Downloading health data</a></li>
+</ul>
+</li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="download.html">Downloading data</a><ul>
+      <li>Previous: <a href="participant.html" title="previous chapter">Downloading participant data</a></li>
+      <li>Next: <a href="health.html" title="next chapter">Downloading health data</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
