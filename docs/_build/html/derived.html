@@ -168,17 +168,16 @@
 <p>You might have to create new columns based on operations on other columns. To use this option, <code class="code docutils literal notranslate"><span class="pre">filterUKB.py</span></code> must be run with the optional argument <code class="code docutils literal notranslate"><span class="pre">--derived_columns</span> <span class="pre">True</span></code>.</p>
 <p>The <code class="code docutils literal notranslate"><span class="pre">derivedColumns.json</span></code> file is used to specify the operations used to create columns. The file included in this folder contains some common options to derive.</p>
 <p>For example, there are (confusingly) three columns corresponding to date of death: <code class="code docutils literal notranslate"><span class="pre">40001-0.0</span></code>, <code class="code docutils literal notranslate"><span class="pre">40001-1.0</span></code> and <code class="code docutils literal notranslate"><span class="pre">40001-2.0</span></code>. It makes sense that the earliest of these is the date of death. To do this, open <code class="code docutils literal notranslate"><span class="pre">derivedColumns.json</span></code> and add:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
-# ...
-   &#39;DateOfDeath&#39;: {
-         &#39;columns&#39;: [&#39;40000-0.0&#39;, &#39;40000-1.0&#39;, &#39;40000-2.0&#39;],
-         &#39;func&#39;: lambda df: df.astype(&#39;datetime64&#39;).min(axis=1),
-     } #,
-# ...
-}
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+     <span class="nt">&quot;DateOfDeath&quot;</span><span class="p">:</span> <span class="p">{</span>
+             <span class="nt">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;40000-0.0&quot;</span><span class="p">,</span> <span class="s2">&quot;40000-1.0&quot;</span><span class="p">],</span>
+             <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;lambda df: df.astype(&#39;datetime64&#39;).min(axis=1)&quot;</span>
+     <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>The <code class="code docutils literal notranslate"><span class="pre">columns</span></code> key defines which columns of the raw UKB table to select, and <code class="code docutils literal notranslate"><span class="pre">func</span></code> defines the function to operate on the resulting subtable. Alternatively, you can also omit <code class="code docutils literal notranslate"><span class="pre">columns</span></code> and write <code class="code docutils literal notranslate"><span class="pre">func</span></code> directly as <code class="code docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">df:</span> <span class="pre">df[['40000-0.0',</span> <span class="pre">'40000-1.0',</span> <span class="pre">'40000-2.0']].astype('datetime64').min(axis=1)</span></code>. Your output CSV will now have a column that looks like this:</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">&quot;columns&quot;</span></code> key defines which columns of the raw UKB table to select, and <code class="code docutils literal notranslate"><span class="pre">&quot;func&quot;</span></code> defines the function to operate on the resulting subtable. [Alternatively, you can omit <code class="code docutils literal notranslate"><span class="pre">&quot;columns&quot;</span></code> and write <code class="code docutils literal notranslate"><span class="pre">&quot;func&quot;</span></code> directly as <code class="code docutils literal notranslate"><span class="pre">&quot;lambda</span> <span class="pre">df:</span> <span class="pre">df[['40000-0.0',</span> <span class="pre">'40000-1.0',</span> <span class="pre">'40000-2.0']].astype('datetime64').min(axis=1)&quot;</span></code>].</p>
+<p>Your output CSV will now have a column that looks like this:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 100%" />
