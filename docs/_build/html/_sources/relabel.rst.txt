@@ -1,7 +1,7 @@
 ##############################################################
 Relabelling and recoding a participant data :code:`.csv` file
 ##############################################################
-Your :code:`ukb12345.csv` from the last step looks something like this:
+You should have an extracted :code:`ukb12345.csv` file (extracted from :code:`.enc_ukb` file) to work with (if not, see `this section <https://ukb-download-and-prep-template.readthedocs.io/en/latest/download.html>`_). It should look something like this:
 
 +---------+--------+--------+--------+--------+
 | eid     | 31-0.0 | 34-0.0 | 54-0.0 |   ...  | 
