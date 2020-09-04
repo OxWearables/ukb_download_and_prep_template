@@ -1,6 +1,6 @@
-######################
+**********************
 Adding derived columns
-######################
+**********************
 
 You might have to create new columns based on operations on other columns. To use this option, :code:`filterUKB.py` must be run with the optional argument :code:`--derived_columns True`. 
 

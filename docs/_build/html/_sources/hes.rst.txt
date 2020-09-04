@@ -1,6 +1,6 @@
-#########################################################
+*********************************************************
 Adding Hospital Episode Statistics
-#########################################################
+*********************************************************
 
 In this section we will add columns on disease diagnoses in hospital to an existing participant dataset (:code:`input.csv`). 
 You will need:
