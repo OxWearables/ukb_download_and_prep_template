@@ -1,6 +1,6 @@
 # ukb_download_and_prep_template
 
-Detailed documentation is available [here](https://ukb-download-and-prep-template.readthedocs.io/)
+Detailed documentation is available [here](https://ukb-download-and-prep-template.readthedocs.io/).
 
 ## Quickstart
 This usage tutorial assumes you have downloaded and extracted a `.csv` file containing participant data and a `hesin_all.csv` file with health record data from UK Biobank. The [download](https://github.com/activityMonitoring/ukb_download_and_prep_template/download) folder contains guidance on how to download these. 
