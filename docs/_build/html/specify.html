@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Specifying particular renaming or recoding &mdash; ukb_download_and_prep_template 0.0-0 documentation</title>
+  <title>Specifying particular relabelling or recoding &mdash; ukb_download_and_prep_template 0.0-0 documentation</title>
   
 
   
@@ -87,7 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="core.html">Basic usage</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="advanced.html">Advanced usage</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="manual_cols.html">Manually adding a field to <code class="code docutils literal notranslate"><span class="pre">columns.json</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Specifying particular relabelling or recoding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multiple_inputs.html">Working with multiple <code class="code docutils literal notranslate"><span class="pre">ukbXXXX.csv</span></code> files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
@@ -144,7 +144,7 @@
         
           <li><a href="advanced.html">Advanced usage</a> &raquo;</li>
         
-      <li>Specifying particular renaming or recoding</li>
+      <li>Specifying particular relabelling or recoding</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -163,8 +163,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="specifying-particular-renaming-or-recoding">
-<h1>Specifying particular renaming or recoding<a class="headerlink" href="#specifying-particular-renaming-or-recoding" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="specifying-particular-relabelling-or-recoding">
+<h1>Specifying particular relabelling or recoding<a class="headerlink" href="#specifying-particular-relabelling-or-recoding" title="Permalink to this headline">¶</a></h1>
 <p>The tool automatically renames columns and recodes categorical variables.  This is using UK Biobank’s Data Dictionary and coding schema (<code class="code docutils literal notranslate"><span class="pre">Data_Dictionary_Showcase.csv</span></code> and <code class="code docutils literal notranslate"><span class="pre">Codings_Showcase.csv</span></code>; available from UK Biobank’s website).</p>
 <p>For the column name parsing, it uses UKB’s field description, which works reasonably well unless the description is very long. For example, <code class="code docutils literal notranslate"><span class="pre">6153</span></code> (medication for cholesterol, blood pressure, diabetes, or take exogenous hormones) gets the mouthful <code class="code docutils literal notranslate"><span class="pre">MedCholesterolBloodPressDiabetTakExogHormon</span></code></p>
 <p>It is possible to customize the column name by specifying a <code class="code docutils literal notranslate"><span class="pre">name</span></code> key. It is also possible to customize the categorical values (e.g. if you want to recategorize) by specifying a <code class="code docutils literal notranslate"><span class="pre">replace_values</span></code> key. In the last example, further editing <code class="code docutils literal notranslate"><span class="pre">columns.json</span></code> to say:</p>

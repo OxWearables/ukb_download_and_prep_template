@@ -1,6 +1,6 @@
-===========================
+###########################
 Including field ID suffixes
-===========================
+###########################
 
 When automatically parsing the field ID, by default it will drop the suffixes :code:`-X.Y` (indicating visit number and array index, for example :code:`-0.0`, :code:`-1.0`, etc). If you need to keep these, set the key :code:`drop_suffix=False` and it will append the suffixes as :code:`_X_Y`. For example,
 

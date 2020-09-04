@@ -88,10 +88,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="download.html">Downloading data</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="participant.html">Downloading participant data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extract.html">Extracting participant data to <code class="code docutils literal notranslate"><span class="pre">.csv</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Downloading health data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#steps">Steps</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Downloading health data</a></li>
 </ul>
 </li>
 </ul>
@@ -173,15 +170,14 @@
 <ol class="arabic">
 <li><p>Follow the <a class="reference external" href="http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf">UKB guide to access the data portal</a>.</p></li>
 <li><dl>
-<dt>It is easiest to download the whole table for the relevant data type (e.g. hesin is required for using all the others, hesin_diag provides diagnosis codes, hesin_oper operation codes).</dt><dd><ul>
+<dt>It is easiest to download the whole table for the relevant data type (e.g. hesin is required for using all the others, hesin_diag provides diagnosis codes, hesin_oper operation codes).</dt><dd><ul class="simple">
 <li><p>You can do this by putting the name of the data table in the box provided in the Table Download tab.</p></li>
-<li><p>If you wish to use the data portal, these SQL statements will download all diagnosis codes from <code class="code docutils literal notranslate"><span class="pre">hesin_diag</span></code> and hospital episode information from <code class="code docutils literal notranslate"><span class="pre">hesin:</span></code></p>
+<li><p>If you wish to use the data portal, these SQL statements will download all diagnosis codes from <code class="code docutils literal notranslate"><span class="pre">hesin_diag</span></code> and hospital episode information from <code class="code docutils literal notranslate"><span class="pre">hesin:</span></code></p></li>
+</ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">eid</span><span class="p">,</span> <span class="n">ins_index</span><span class="p">,</span> <span class="n">admidate</span><span class="p">,</span> <span class="n">disdate</span><span class="p">,</span> <span class="n">epiend</span><span class="p">,</span> <span class="n">epistart</span> <span class="k">FROM</span> <span class="n">hesin</span> <span class="o">#</span> <span class="k">then</span> <span class="n">click</span> <span class="s1">&#39;Download&#39;</span>
 <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">hesin_diag</span> <span class="o">#</span> <span class="n">click</span> <span class="s1">&#39;Download&#39;</span>
 </pre></div>
 </div>
-</li>
-</ul>
 </dd>
 </dl>
 </li>

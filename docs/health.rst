@@ -19,10 +19,10 @@ Steps
 
 	- If you wish to use the data portal, these SQL statements will download all diagnosis codes from :code:`hesin_diag` and hospital episode information from :code:`hesin:`
 	
-	  .. code-block:: sql
+	.. code-block:: sql
 	  
-		 SELECT eid, ins_index, admidate, disdate, epiend, epistart FROM hesin # then click 'Download'
-		 SELECT * FROM hesin_diag # click 'Download'
+	        SELECT eid, ins_index, admidate, disdate, epiend, epistart FROM hesin # then click 'Download'
+		SELECT * FROM hesin_diag # click 'Download'
 	  
   
 3. Join files together in preparation for future use. 

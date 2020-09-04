@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Documentation for ukb_download_and_prep_template
-==========================================================
+##########################################################
 
 .. toctree::
    :titlesonly:

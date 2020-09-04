@@ -1,6 +1,6 @@
-=============================================
-Specifying particular renaming or recoding 
-=============================================
+#############################################
+Specifying particular relabelling or recoding 
+#############################################
 The tool automatically renames columns and recodes categorical variables.  This is using UK Biobank's Data Dictionary and coding schema (:code:`Data_Dictionary_Showcase.csv` and :code:`Codings_Showcase.csv`; available from UK Biobank's website). 
 
 For the column name parsing, it uses UKB's field description, which works reasonably well unless the description is very long. For example, :code:`6153` (medication for cholesterol, blood pressure, diabetes, or take exogenous hormones) gets the mouthful :code:`MedCholesterolBloodPressDiabetTakExogHormon`

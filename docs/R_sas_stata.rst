@@ -1,6 +1,7 @@
-======================================
+######################################
 An alternative for R/ SAS/ Stata users
-======================================
+######################################
+
 If you prefer to use R, SAS or Stata for data preparation, UK Biobank has a built-in tool to facilitate this. However, note this tool doesn't have the column-renaming functionality and additional flexibility on recoding implemented as part of this tool.  
 
 For example, to use R: 
