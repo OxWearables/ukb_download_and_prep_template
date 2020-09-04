@@ -161,11 +161,13 @@
   <div class="section" id="adding-hospital-episode-statistics">
 <h1>Adding Hospital Episode Statistics<a class="headerlink" href="#adding-hospital-episode-statistics" title="Permalink to this headline">¶</a></h1>
 <p>In this section we will add columns on disease diagnoses in hospital to an existing participant dataset (<code class="code docutils literal notranslate"><span class="pre">input.csv</span></code>).
-You will need:
-- <code class="code docutils literal notranslate"><span class="pre">hesin_all.csv</span></code>: a file containing Hospital Episode Statistics data for all participants (see <a class="reference external" href="https://ukb-download-and-prep-template.readthedocs.io/en/latest/health.html">here</a>).
-- <code class="code docutils literal notranslate"><span class="pre">icdGroups.json</span></code>: a JSON file containing descriptions of required HES codes (here’s an <a class="reference external" href="https://github.com/activityMonitoring/ukb_download_and_prep_template/blob/master/icdGroups.json">example</a>).
-- An existing dataset <code class="code docutils literal notranslate"><span class="pre">input.csv</span></code> (such as <code class="code docutils literal notranslate"><span class="pre">outputFilename.csv</span></code> from the last section).
-- If you want to define prevalent and incident disease, <code class="code docutils literal notranslate"><span class="pre">input.csv</span></code> should also contain a date column which will be used to define this.</p>
+You will need:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">hesin_all.csv</span></code>: a file containing Hospital Episode Statistics data for all participants (see <a class="reference external" href="https://ukb-download-and-prep-template.readthedocs.io/en/latest/health.html">here</a>).</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">icdGroups.json</span></code>: a JSON file describing required HES codes (here’s an <a class="reference external" href="https://github.com/activityMonitoring/ukb_download_and_prep_template/blob/master/icdGroups.json">example</a>).</p></li>
+<li><p>An existing dataset <code class="code docutils literal notranslate"><span class="pre">input.csv</span></code> (such as <code class="code docutils literal notranslate"><span class="pre">outputFilename.csv</span></code> from the last section).</p></li>
+<li><p>If you want to define prevalent and incident disease, <code class="code docutils literal notranslate"><span class="pre">input.csv</span></code> should also contain a date column which will be used to define this.</p></li>
+</ul>
 <p>Then run:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json --incident_prevalent True --date_column <span class="s1">&#39;name_of_date_column&#39;</span>
 </pre></div>
@@ -175,7 +177,7 @@ You will need:
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The JSON file should have <code class="code docutils literal notranslate"><span class="pre">level</span></code> specified. <code class="code docutils literal notranslate"><span class="pre">&quot;level&quot;:</span> <span class="pre">&quot;primary&quot;</span></code> identifies only diagnoses which were the primary diagnosis in the admission, whereas <code class="code docutils literal notranslate"><span class="pre">&quot;level&quot;:</span> <span class="pre">&quot;all&quot;</span></code> identifies all diagnoses.</p></li>
-<li><p>This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields <a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093">40001 and 4002</a>) .</p></li>
+<li><p>This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields <a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093">40001 and 40002</a> or <a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=COVID19_availability">via the Data Portal</a>) .</p></li>
 </ul>
 </div>
 </div>
