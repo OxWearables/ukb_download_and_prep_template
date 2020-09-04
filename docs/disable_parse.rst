@@ -1,6 +1,7 @@
-==================
+##################
 Disabling parsing
-==================
+##################
+
 If for some reason you don't want to automatically parse the field ID and/or the categorical codes, you can explicitly set the keys :code:`name` and/or :code:`replace_values` to :code:`None`. For example,
 
 .. code-block:: json 
