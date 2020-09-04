@@ -1,6 +1,6 @@
-#############################
+*****************************
 Downloading participant data
-#############################
+*****************************
 
 Here we are using only standard UK Biobank functionality, so `UK Biobank's guide to accessing the data <https://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf>`_ is a very useful reference. 
 

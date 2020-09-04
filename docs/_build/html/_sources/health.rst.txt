@@ -1,6 +1,6 @@
-########################
+************************
 Downloading health data
-########################
+************************
 
 UK Biobank benefits from passive follow-up via health record linkage.
 
@@ -21,8 +21,8 @@ Steps
 	
 	.. code-block:: sql
 	  
-	        SELECT eid, ins_index, admidate, disdate, epiend, epistart FROM hesin # then click 'Download'
-		SELECT * FROM hesin_diag # click 'Download'
+	        SELECT eid, ins_index, admidate, disdate, epiend, epistart FROM hesin * then click 'Download'
+		SELECT * FROM hesin_diag * click 'Download'
 	  
   
 3. Join files together in preparation for future use. 

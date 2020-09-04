@@ -1,6 +1,6 @@
-#################################################################################
+*********************************************************************************
 Extracting participant data to :code:`.csv`
-#################################################################################
+*********************************************************************************
 
 To access a particular set of variables in :code:`.csv` format, we extract them from the :code:`12345.enc_ukb` file (which contains all variables in the application). 
 
@@ -14,7 +14,7 @@ Steps
   .. code-block:: sh
 
      download/helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb csv -ianalysisCols.txt
-     # output = path_to_data/ukb12345.csv
+     * output = path_to_data/ukb12345.csv
   
   
 ======
