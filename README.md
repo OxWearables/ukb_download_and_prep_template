@@ -45,3 +45,15 @@ The next step towards having ready-to-use data is to filter out some columns and
 ```Bash
 $ python filterUKB.py ukb12345.csv -o outputFilename.csv
 ```
+### 3. Adding Hospital Episode Statistics on particular diseases
+We now add columns on disease diagnoses in hospital. 
+You will need: 
+ - `hesin_all.csv`: this is a file containing Hospital Episode Statistics data for all participants. 
+ - `icdGroups.json`: this is a JSON file containing descriptions of required HES code. 
+ - An existing dataset `input.csv` (which might be `outputFilename.csv` from the last section). 
+ - If you want to define prevalent and incident disease, `input.csv` should also contain a date column which will be used to define this. 
+
+Then run: 
+```
+python3 addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json --incident_prevalent True --date_column 'name_of_date_column'
+```
