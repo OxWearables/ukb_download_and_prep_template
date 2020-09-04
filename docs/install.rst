@@ -4,13 +4,13 @@ Installation
 
 To use this repo, run: 
 
-.. code-block:: console
+.. code-block:: sh
 
    git clone git@github.com:activityMonitoring/ukb_download_and_prep_template
    
 This repo requires :code:`pandas` and :code:`nltk`. If you are using an Anaconda installation of Python, these are included. Otherwise, run: 
 
-.. code-block:: console
+.. code-block:: sh
 
    pip install pandas
    pip install nltk
@@ -18,7 +18,7 @@ This repo requires :code:`pandas` and :code:`nltk`. If you are using an Anaconda
 
 Navigate to the repo: 
 
-.. code-block:: console
+.. code-block:: sh
 
   cd ukb_download_and_prep_template
    

@@ -30,14 +30,14 @@ Steps
 ======
 1. Auto-generate a :code:`columns.json` file from the text file of field IDs (in the format used in :code:`download_participant_data`):
 
-.. code-block:: console
+.. code-block:: sh
   
    python writeColumnsFile.py --columnsFile analysisCols.txt 
 
 
 2. Run:
 
-.. code-block:: console
+.. code-block:: sh
   
    python filterUKB.py ukb12345.csv -o outputFilename.csv
 
