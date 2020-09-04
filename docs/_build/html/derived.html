@@ -15,6 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Working with multiple ukbXXX.csv files" href="multiple_inputs.html" />
+    <link rel="prev" title="Specifying particular renaming or recoding" href="specify.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,21 +35,44 @@
             
   <div class="section" id="adding-derived-columns">
 <h1>Adding derived columns<a class="headerlink" href="#adding-derived-columns" title="Permalink to this headline">¶</a></h1>
-<p>You might have to create new columns based on operations on other columns. To use this option, <cite>filterUKB.py</cite> must be run with the optional argument <cite>–derived_columns True</cite>.</p>
-<p>The <cite>derivedColumns.json</cite> file is used to specify the operations used to create columns. The file included in this folder contains some common options to derive.</p>
-<p>For example, there are (confusingly) three columns corresponding to date of death: <cite>40001-0.0</cite>, <cite>40001-1.0</cite> and <cite>40001-2.0</cite>. It makes sense that the earliest of these is the date of death. To do this, open <cite>derivedColumns.json</cite> and add:</p>
-<p>The <cite>columns</cite> key defines which columns of the raw UKB table to select, and <cite>func</cite> defines the function to operate on the resulting subtable. Alternatively, you can also ommit <cite>columns</cite> and write <cite>func</cite> directly as <cite>lambda df: df[[‘40000-0.0’, ‘40000-1.0’, ‘40000-2.0’]].astype(‘datetime64’).min(axis=1)</cite>. Your output CSV will now have a column that looks like this:
-+—————————-+
-| DateOfDeath                |
-+—————————-+
-| 2013-09-15                 |
-| NaN                        |
-| NaN                        |
-| 2015-02-01                 |
-| NaN                        |
-| …                        |
-+—————————-+</p>
-<p>See <cite>derivedColumns.json</cite> for more examples.</p>
+<p>You might have to create new columns based on operations on other columns. To use this option, <code class="code docutils literal notranslate"><span class="pre">filterUKB.py</span></code> must be run with the optional argument <code class="code docutils literal notranslate"><span class="pre">--derived_columns</span> <span class="pre">True</span></code>.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">derivedColumns.json</span></code> file is used to specify the operations used to create columns. The file included in this folder contains some common options to derive.</p>
+<p>For example, there are (confusingly) three columns corresponding to date of death: <code class="code docutils literal notranslate"><span class="pre">40001-0.0</span></code>, <code class="code docutils literal notranslate"><span class="pre">40001-1.0</span></code> and <code class="code docutils literal notranslate"><span class="pre">40001-2.0</span></code>. It makes sense that the earliest of these is the date of death. To do this, open <code class="code docutils literal notranslate"><span class="pre">derivedColumns.json</span></code> and add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="c1"># ...</span>
+   <span class="s1">&#39;DateOfDeath&#39;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s1">&#39;columns&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;40000-0.0&#39;</span><span class="p">,</span> <span class="s1">&#39;40000-1.0&#39;</span><span class="p">,</span> <span class="s1">&#39;40000-2.0&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+     <span class="p">},</span>
+     <span class="c1"># ...</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">columns</span></code> key defines which columns of the raw UKB table to select, and <code class="code docutils literal notranslate"><span class="pre">func</span></code> defines the function to operate on the resulting subtable. Alternatively, you can also omit <code class="code docutils literal notranslate"><span class="pre">columns</span></code> and write <code class="code docutils literal notranslate"><span class="pre">func</span></code> directly as <code class="code docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">df:</span> <span class="pre">df[['40000-0.0',</span> <span class="pre">'40000-1.0',</span> <span class="pre">'40000-2.0']].astype('datetime64').min(axis=1)</span></code>. Your output CSV will now have a column that looks like this:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>DateOfDeath</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2013-08-17</p></td>
+</tr>
+<tr class="row-odd"><td><p>NaN</p></td>
+</tr>
+<tr class="row-even"><td><p>NaN</p></td>
+</tr>
+<tr class="row-odd"><td><p>2015-03-07</p></td>
+</tr>
+<tr class="row-even"><td><p>NaN</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <code class="code docutils literal notranslate"><span class="pre">derivedColumns.json</span></code> for more examples.</p>
 </div>
 
 
@@ -67,11 +92,30 @@
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Basic usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="advanced.html">Advanced usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manual_cols.html">Manually adding a field to <code class="code docutils literal notranslate"><span class="pre">columns.json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Adding derived columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="disable_parse.html">Disabling parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Downloading data</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="advanced.html">Advanced usage</a><ul>
+      <li>Previous: <a href="specify.html" title="previous chapter">Specifying particular renaming or recoding</a></li>
+      <li>Next: <a href="multiple_inputs.html" title="next chapter">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

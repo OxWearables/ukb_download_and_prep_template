@@ -15,6 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced usage" href="advanced.html" />
+    <link rel="prev" title="Relabelling and recoding a participant data .csv file" href="relabel.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,24 +35,23 @@
             
   <div class="section" id="adding-hospital-episode-statistics-on-particular-diseases">
 <h1>Adding Hospital Episode Statistics on particular diseases<a class="headerlink" href="#adding-hospital-episode-statistics-on-particular-diseases" title="Permalink to this headline">¶</a></h1>
-<p>In this section we will add columns on disease diagnoses in hospital to an existing participant dataset (<cite>input.csv</cite>).</p>
+<p>In this section we will add columns on disease diagnoses in hospital to an existing participant dataset (<code class="code docutils literal notranslate"><span class="pre">input.csv</span></code>).</p>
 <dl class="simple">
 <dt>You will need:</dt><dd><ul class="simple">
-<li><p><cite>hesin_all.csv</cite>: this is a file containing Hospital Episode Statistics data for all participants.</p></li>
-<li><p><cite>icdGroups.json</cite>: this is a JSON file containing descriptions of required HES codes (as in the examples in this folder).</p></li>
-<li><p>An existing dataset <cite>input.csv</cite> (which might be <cite>outputFilename.csv</cite> from the last section).</p></li>
-<li><p>If you want to define prevalent and incident disease, <cite>input.csv</cite> should also contain a date column which will be used to define this.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">hesin_all.csv</span></code>: this is a file containing Hospital Episode Statistics data for all participants.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">icdGroups.json</span></code>: this is a JSON file containing descriptions of required HES codes (as in the examples in this folder).</p></li>
+<li><p>An existing dataset <code class="code docutils literal notranslate"><span class="pre">input.csv</span></code> (which might be <code class="code docutils literal notranslate"><span class="pre">outputFilename.csv</span></code> from the last section).</p></li>
+<li><p>If you want to define prevalent and incident disease, <code class="code docutils literal notranslate"><span class="pre">input.csv</span></code> should also contain a date column which will be used to define this.</p></li>
 </ul>
 </dd>
 </dl>
-<p>Then run:
-.. code-block:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">addNewHES</span><span class="o">.</span><span class="n">py</span> <span class="nb">input</span><span class="o">.</span><span class="n">csv</span> <span class="n">hesin_all</span><span class="o">.</span><span class="n">csv</span> <span class="n">output</span><span class="o">.</span><span class="n">csv</span> <span class="n">icdGroups</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">incident_prevalent</span> <span class="kc">True</span> <span class="o">--</span><span class="n">date_column</span> <span class="s1">&#39;name_of_date_column</span>
+<p>Then run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json --incident_prevalent True --date_column &#39;name_of_date_column&#39;</span>
 </pre></div>
 </div>
 <p>This will add a column containing the date of first instance of the given disease definition, as well as a binary column indicating incident disease and a binary column indicating prevalent disease (relative to the date in the specified date column).
-Note the JSON file should have <cite>level</cite> specified. <cite>“level”: “primary”</cite> identifies only diagnoses which were the primary diagnosis in the admission, whereas <cite>“level”: “all”</cite> identifies all diagnoses.</p>
-<p><strong>Note:</strong> This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields <cite>40001 and 4002 &lt;https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093&gt;</cite>) .</p>
+Note the JSON file should have <code class="code docutils literal notranslate"><span class="pre">level</span></code> specified. <code class="code docutils literal notranslate"><span class="pre">&quot;level&quot;:</span> <span class="pre">&quot;primary&quot;</span></code> identifies only diagnoses which were the primary diagnosis in the admission, whereas <code class="code docutils literal notranslate"><span class="pre">&quot;level&quot;:</span> <span class="pre">&quot;all&quot;</span></code> identifies all diagnoses.</p>
+<p><strong>Note:</strong> This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields <a class="reference external" href="https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093">40001 and 4002</a>) .</p>
 </div>
 
 
@@ -70,11 +71,25 @@ Note the JSON file should have <cite>level</cite> specified. <cite>“level”: 
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="core.html">Basic usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="relabel.html">Relabelling and recoding a participant data <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> file</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Adding Hospital Episode Statistics on particular diseases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Downloading data</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="core.html">Basic usage</a><ul>
+      <li>Previous: <a href="relabel.html" title="previous chapter">Relabelling and recoding a participant data <code class="code docutils literal notranslate"><span class="pre">.csv</span></code> file</a></li>
+      <li>Next: <a href="advanced.html" title="next chapter">Advanced usage</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

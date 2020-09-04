@@ -8,7 +8,6 @@ Documentation for ukb_download_and_prep_template
 
 .. toctree::
    : maxdepth: 2
-   :captions: Contents:
 
    started.rst
    core.rst

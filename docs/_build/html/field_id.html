@@ -15,6 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Disabling parsing" href="disable_parse.html" />
+    <link rel="prev" title="Working with multiple ukbXXX.csv files" href="multiple_inputs.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,8 +35,17 @@
             
   <div class="section" id="including-field-id-suffixes">
 <h1>Including field ID suffixes<a class="headerlink" href="#including-field-id-suffixes" title="Permalink to this headline">¶</a></h1>
-<p>When automatically parsing the field ID, by default it will drop the suffixes <cite>-X.Y</cite> (indicating visit number and array index, for example <cite>-0.0</cite>, <cite>-1.0</cite>, etc). If you need to keep these, set the key <cite>drop_suffix=False</cite> and it will append the suffixes as <cite>_X_Y</cite>. For example,</p>
-<p>will produce the column name <cite>AlcoholIntakFrequenc_0_0</cite>.</p>
+<p>When automatically parsing the field ID, by default it will drop the suffixes <code class="code docutils literal notranslate"><span class="pre">-X.Y</span></code> (indicating visit number and array index, for example <code class="code docutils literal notranslate"><span class="pre">-0.0</span></code>, <code class="code docutils literal notranslate"><span class="pre">-1.0</span></code>, etc). If you need to keep these, set the key <code class="code docutils literal notranslate"><span class="pre">drop_suffix=False</span></code> and it will append the suffixes as <code class="code docutils literal notranslate"><span class="pre">_X_Y</span></code>. For example,</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+ # ...
+ &quot;1558-0.0&quot;:{
+     &quot;drop_suffix&quot;: False,
+     },
+ # ...
+ }
+</pre></div>
+</div>
+<p>will produce the column name <code class="code docutils literal notranslate"><span class="pre">AlcoholIntakFrequenc_0_0</span></code>.</p>
 </div>
 
 
@@ -54,11 +65,30 @@
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Basic usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="advanced.html">Advanced usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Including field ID suffixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="disable_parse.html">Disabling parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="R_sas_stata.html">An alternative for R/ SAS/ Stata users</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Downloading data</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="advanced.html">Advanced usage</a><ul>
+      <li>Previous: <a href="multiple_inputs.html" title="previous chapter">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+      <li>Next: <a href="disable_parse.html" title="next chapter">Disabling parsing</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

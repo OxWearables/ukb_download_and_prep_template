@@ -15,6 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Downloading data" href="download.html" />
+    <link rel="prev" title="Disabling parsing" href="disable_parse.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -35,7 +37,12 @@
 <h1>An alternative for R/ SAS/ Stata users<a class="headerlink" href="#an-alternative-for-r-sas-stata-users" title="Permalink to this headline">¶</a></h1>
 <p>If you prefer to use R, SAS or Stata for data preparation, UK Biobank has a built-in tool to facilitate this. However, note this tool doesn’t have the column-renaming functionality and additional flexibility on recoding implemented as part of this tool.</p>
 <p>For example, to use R:</p>
-<p><cite>ukb12345.r</cite> can be opened and run in R: it will automatically recode - but not rename - categorical columns.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">download/helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb r -ianalysisCols.txt</span>
+<span class="gp">#</span> <span class="nv">output</span> <span class="o">=</span> path_to_data/ukb12345.r
+<span class="gp">#</span> <span class="nv">output</span> <span class="o">=</span> path_to_data/ukb12345.tab
+</pre></div>
+</div>
+<p><code class="code docutils literal notranslate"><span class="pre">ukb12345.r</span></code> can be opened and run in R: it will automatically recode - but not rename - categorical columns.</p>
 </div>
 
 
@@ -55,11 +62,30 @@
 
 
 <h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Basic usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="advanced.html">Advanced usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="manual_cols.html">Manually adding a field to <cite>columns.json</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="specify.html">Specifying particular renaming or recoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derived.html">Adding derived columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiple_inputs.html">Working with multiple <cite>ukbXXX.csv</cite> files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="field_id.html">Including field ID suffixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="disable_parse.html">Disabling parsing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">An alternative for R/ SAS/ Stata users</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Downloading data</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="advanced.html">Advanced usage</a><ul>
+      <li>Previous: <a href="disable_parse.html" title="previous chapter">Disabling parsing</a></li>
+      <li>Next: <a href="download.html" title="next chapter">Downloading data</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
