@@ -1,6 +1,9 @@
 #####################
 Getting started
 #####################
-.. toctree:: 
+.. toctree::
+        :titlesonly:
+        
+        why.rst
         install.rst
         data_reqs.rst

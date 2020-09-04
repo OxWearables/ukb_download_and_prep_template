@@ -27,7 +27,7 @@ Steps
   
 3. Join files together in preparation for future use. 
 
-	  .. code-block:: console
+	  .. code-block:: sh
 	  
 		# Rename files if necessary to match the names used here
 		# Call python script to merge files together and delete downloaded input files

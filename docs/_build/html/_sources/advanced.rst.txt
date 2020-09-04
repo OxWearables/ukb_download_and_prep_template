@@ -1,7 +1,9 @@
 #######################
 Advanced usage
 #######################
-.. toctree:: 
+.. toctree::
+   :titlesonly:
+
    manual_cols.rst
    specify.rst
    derived.rst
