@@ -10,6 +10,10 @@ parser.add_argument('--columnsFile', metavar='e.g. analysisCols.txt', type=str, 
                             help="""The text file listing columns to include
                             """ )
 
+parser.add_argument('--keepRepeats', metavar='True/False', type=bool, default = False, 
+                            help="""A flag to keep columns from repeats (Repeat; Imaging)
+                            """ )
+
 args = parser.parse_args()
 
 
@@ -20,8 +24,14 @@ with open(args.columnsFile,
     data = [i for i in data if i != '' ]
 
 d = "{"
-for i in data[0:-1]: 
-    d += '"' + i + '-0.0":{} , '
+for i in data[0:-1]:
+    if args.keepRepeats: 
+        d += '"' + i + '-1.0":{"drop-suffix": "False"}, '
+        d += '"' + i + '-2.0":{"drop-suffix": "False"}, '
+    d += '"' + i + '-0.0":{}, '
+if args.keepRepeats: 
+    d += '"' + data[-1] + '-1.0":{"drop-suffix": "False"}, '
+    d += '"' + data[-1] + '-2.0":{"drop-suffix": "False"}, '
 d += '"' + data[-1] + '-0.0":{}}'
 d = eval(d)
 
