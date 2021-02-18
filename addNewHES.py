@@ -52,7 +52,7 @@ dAll = dAll.set_index('eid')
 Read HES file
 '''
 print('read and clean ' + args.hesCSV)
-dHES = pd.read_csv(args.hesCSV, parse_dates=['epistart','disdate'])
+dHES = pd.read_csv(args.hesCSV, parse_dates=['epistart','disdate'], dayfirst = True)
 dHES = dHES[dHES['eid'].isin(dAll.index)] # restrict to participants in dAll
 
 print(len(dHES), 'len dataframe')
