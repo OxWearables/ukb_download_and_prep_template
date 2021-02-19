@@ -32,6 +32,11 @@ if len(sys.argv) < 5:
 args = parser.parse_args()
 
 '''
+Add date parsers
+'''
+hes_format_parser = lambda x: pd.to_datetime(x, format = "%d/%m/%Y", errors="coerce")
+
+'''
 Read file of current data
 '''
 print('read ' + args.inCSV)
@@ -42,9 +47,9 @@ if ('eid' not in list(dAll.columns)):
 if args.incident_prevalent:
         if (str(args.date_column) not in list(dAll.columns)):
                 sys.exit('Date column needs to be a column of inCSV in order to define incident and prevalent disease.')
-        print(dAll[args.date_column])
-        dAll[args.date_column] = pd.to_datetime(dAll[args.date_column])
-        print(dAll[args.date_column])
+        #print(dAll[args.date_column])
+        dAll[args.date_column] = pd.to_datetime(dAll[args.date_column], format = "%Y-%m-%d %H:%M:%S", errors = "coerce")
+        print(dAll[args.date_column].head())
 
 dAll = dAll.set_index('eid')
 
@@ -52,7 +57,7 @@ dAll = dAll.set_index('eid')
 Read HES file
 '''
 print('read and clean ' + args.hesCSV)
-dHES = pd.read_csv(args.hesCSV, parse_dates=['epistart','disdate'], dayfirst = True)
+dHES = pd.read_csv(args.hesCSV, parse_dates=['epistart','disdate'], date_parser= hes_format_parser)
 dHES = dHES[dHES['eid'].isin(dAll.index)] # restrict to participants in dAll
 
 print(len(dHES), 'len dataframe')
