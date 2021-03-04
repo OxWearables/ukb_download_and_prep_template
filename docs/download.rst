@@ -10,7 +10,7 @@ Here we are using only standard UK Biobank functionality, so `UK Biobank's guide
 
 You will have initially downloaded an encrypted :code:`ukb12345.enc` file. This needs to be decrypted using the key provided by UK Biobank in an email e.g. for research application 6789 and copy number 12345 we would decrypt to an 'unpacked' file: 
 
-.. code-block::
+.. code-block:: sh
 
   download/helpers/linux_tools/ukb_unpack path_to_data/ukb12345.enc k6789r12345.key
   download/helpers/linux_tools/ukb_unpack path_to_data/ukb12345.enc k6789r12345.key
@@ -34,7 +34,7 @@ Steps
   .. code-block:: sh
 
      download/helpers/linux_tools/ukb_conv path_to_data/ukb12345.enc_ukb csv -ianalysisCols.txt
-     * output = path_to_data/ukb12345.csv
+     # output = path_to_data/ukb12345.csv
   
   
 ======
