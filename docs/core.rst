@@ -64,7 +64,7 @@ Then run:
 
 .. code-block:: sh
 
-   python addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json --incident_prevalent True --date_column 'name_of_date_column'
+   python addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json --incident_prevalent True --date_column name_of_date_column
 
 This will add a column containing the date of first instance of the given disease definition, as well as a binary column indicating incident disease and a binary column indicating prevalent disease (relative to the date in the specified date column). 
 
