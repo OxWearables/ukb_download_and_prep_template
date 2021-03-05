@@ -1,9 +1,0 @@
-ukb_download_and_prep_template
-==============================
-
-.. toctree::
-   :maxdepth: 4
-
-   addNewHES
-   filterUKB
-   writeColumnsFile

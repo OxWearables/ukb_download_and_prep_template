@@ -1,7 +1,0 @@
-addNewHES module
-================
-
-.. automodule:: addNewHES
-   :members:
-   :undoc-members:
-   :show-inheritance:
