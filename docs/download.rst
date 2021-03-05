@@ -15,6 +15,8 @@ You will have initially downloaded an encrypted :code:`ukb12345.enc` file. This 
      download/helpers/linux_tools/ukb_unpack path_to_data/ukb12345.enc k6789r12345.key
      download/helpers/linux_tools/ukb_unpack path_to_data/ukb12345.enc k6789r12345.key
      # output = path_to_data/ukb12345.enc_ukb
+     
+     
     
 To extract data from this to :code:`.csv` format, see the `next section <https://ukb-download-and-prep-template.readthedocs.io/en/latest/extract.html>`_. 
 
