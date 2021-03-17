@@ -1,4 +1,4 @@
-eid,Sex,YearOfBirth,MonthOfBirth,DatAttendAssessCent,UkBiobankAssessCent,Booze,SystolBloodPressAutomRead_0_0,SystolBloodPressAutomRead_0_1,SystolBloodPressur
-1234567,Male,1948,July,10/03/2008,Nottingham,weekly,140,145,142.5
-2345678,Female,1961,October,09/06/2009,Glasgow,rarely,120,118,119.0
-3456789,Female,1953,January,12/08/2007,Birmingham,NA,132,128,130.0
+eid,Sex,YearOfBirth,MonthOfBirth,DatAttendAssessCent,UkBiobankAssessCent,Booze,SystolBloodPressAutomRead_0_0,SystolBloodPressur
+1234567,Male,1948,July,10/03/2008,Nottingham,weekly,140,142.5
+2345678,Female,1961,October,09/06/2009,Glasgow,rarely,120,119.0
+3456789,Female,1953,January,12/08/2007,Birmingham,NA,132,130.0
