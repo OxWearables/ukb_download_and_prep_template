@@ -39,6 +39,8 @@ def main(args):
 
     if args.derivedColumns:
         DERIVED_COLUMNS = json.loads(open(args.derivedColumnsFile).read())
+        [COLUMNS_LIST.extend(DERIVED_COLUMNS[k]['columns']) for k in DERIVED_COLUMNS.keys()]
+
     
     # Download a required packages for parsing
     nltk.download('punkt')
