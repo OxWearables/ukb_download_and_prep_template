@@ -2,6 +2,8 @@
 
 Detailed documentation is available [here](https://ukb-download-and-prep-template.readthedocs.io/).
 
+*IMPORTANT*: If you used or are using a version of this repo from before 19.02.2021, an error in date processing may have caused wrongly assigned dates for health outcomes. Please re-download and re-process any data processed with `addNewHES.py`. 
+
 ## Quickstart
 This usage tutorial assumes you have downloaded and extracted a `.csv` file containing participant data and a `hesin_all.csv` file with health record data from UK Biobank. The [download](https://github.com/activityMonitoring/ukb_download_and_prep_template/download) folder contains guidance on how to download these. 
 
