@@ -233,10 +233,6 @@
 
 
 #_HEALTH_OUTCOMES
-40000 # date_of_death
-40001 # Primary_cause_of_death_ICD10
-40002 # Secondary_causes_of_death_ICD10
-40007 # Age_at_death
 #_40005 # Date_of_cancer_diagnosis
 #_40006 # Type_of_cancer_ICD10
 #_40008 # Age_at_cancer_diagnosis
