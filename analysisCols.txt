@@ -99,6 +99,8 @@
 # ACCELEROMETRY
 110005 # accept.110005
 110006 # accInviteDate.110006
+90010 # Start time of wear
+90011 # End time of wear
 90012 # Overall_acceleration_average
 90015 # Data_quality,_good_wear_time
 90016 # Data_quality,_good_calibration
