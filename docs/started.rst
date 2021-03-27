@@ -7,12 +7,12 @@ Why use this tool?
 ********************
 This tool facilitates analyses using UK Biobank data by automating lots of the data preparation steps. 
 
-*******************
-Usage notes
-*******************
-IMPORTANT: If you used or are using a version of this repo from before 19.02.2021, an error in date processing may have caused wrongly assigned dates for health outcomes. Please re-download and re-process any data processed with addNewHES.py.
+Please note that this is the in-development version and major changes and corrections may be made - use at your own risk! Please share comments, suggestions and errors/bugs found, either directly on the GitHub page or by emailing rosemary.walmsley@gtc.ox.ac.uk.
 
-This is the in-development version and major changes and corrections may be made - use at your own risk! Please share comments, suggestions and errors/bugs found, either directly on the GitHub page or by emailing rosemary.walmsley@gtc.ox.ac.uk.
+*******************
+Important note
+*******************
+If you used or are using a version of this repo from before 19.02.2021, an error in date processing may have caused wrongly assigned dates for health outcomes. Please re-download and re-process any data processed with :code:`addNewHES.py`.
 
 *************
 Installation
