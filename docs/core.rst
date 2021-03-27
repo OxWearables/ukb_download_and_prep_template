@@ -73,6 +73,8 @@ Notes
 =========
 
 - The JSON file should have :code:`level` specified. :code:`"level": "primary"` identifies only diagnoses which were the primary diagnosis in the admission, whereas :code:`"level": "all"` identifies all diagnoses.
-- This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields `40001 and 40002 <https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093>`_ or `via the Data Portal <https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=COVID19_availability>`_) . 
+- This dataset includes hospital admissions only. You may also want to extract appearance of these codes on death certificates, which are available in the download of participant data (fields `40001 and 40002 <https://biobank.ctsu.ox.ac.uk/crystal/label.cgi?id=100093>`_ or `via the Data Portal <https://biobank.ctsu.ox.ac.uk/crystal/exinfo.cgi?src=COVID19_availability>`_) .
+- Please note that if you used or are using a version of this repo from before 19.02.2021, an error in date processing may have caused wrongly assigned dates for health outcomes. Please re-download and re-process any data processed with `addNewHES.py`.
+
 
 
