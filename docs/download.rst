@@ -63,7 +63,7 @@ Here, we discuss Hospital Episode Statistics: `ICD9/10 codes <https://www.who.in
 ==============
 Steps
 ==============
-1. Follow the `UKB guide to access the data portal <http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.1.pdf>`_. 
+1. Follow the `UKB guide to access the data portal <http://biobank.ctsu.ox.ac.uk/~bbdatan/Accessing_UKB_data_v2.3.pdf>`_. 
 2. It is easiest to download the whole table for the relevant data type (e.g. hesin is required for using all the others, hesin_diag provides diagnosis codes, hesin_oper operation codes).
 	- You can do this by putting the name of the data table in the box provided in the Table Download tab. 
 
