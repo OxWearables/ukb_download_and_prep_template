@@ -12,20 +12,22 @@ This usage tutorial assumes you have downloaded and extracted a `.csv` file cont
 ### 1. Installation 
 
 To use this repo, run: 
-  ```Bash
-  $ git clone git@github.com:activityMonitoring/ukb_download_and_prep_template
-  ```
+```Bash
+$ git clone https://github.com/activityMonitoring/ukb_download_and_prep_template.git
+```
  
-This repo requires `pandas` and `nltk`. If you are using an Anaconda installation of Python, these are included. Otherwise, run: 
-  ```Bash
-  $ pip install pandas
-  $ pip install nltk
-  ```
+This repo requires `pandas` and `nltk`. If you are using an Anaconda installation of Python, these are included. 
+To install Anaconda, follow the instructions at https://docs.anaconda.com/anaconda/install/linux/. 
+Otherwise, run: 
+```Bash
+$ pip install pandas
+$ pip install nltk
+```
 
 Navigate to the repo: 
-  ```Bash
-  $ cd ukb_download_and_prep_template
-  ```
+```Bash
+$ cd ukb_download_and_prep_template
+```
 
 ### 2. Relabelling and recoding a participant data `.csv` file 
 You should have a `ukb12345.csv` participant data file which looks something like this:
@@ -43,8 +45,8 @@ The next step towards having ready-to-use data is to filter out some columns and
 
 1. Auto-generate a `columns.json` file from the text file of field IDs (in the format used in download_participant_data):
 ```Bash
-  $ python writeColumnsFile.py --columnsFile analysisCols.txt 
- ```
+$ python writeColumnsFile.py --columnsFile analysisCols.txt 
+```
 2. Run:
 ```Bash
 $ python filterUKB.py ukb12345.csv -o outputFilename.csv
@@ -59,5 +61,5 @@ You will need:
 
 Then run: 
 ```
-python3 addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json --incident_prevalent True --date_column 'name_of_date_column'
+$ python addNewHES.py input.csv hesin_all.csv output.csv icdGroups.json --incident_prevalent True --date_column 'name_of_date_column'
 ```
