@@ -12,6 +12,7 @@ from nltk.corpus import stopwords
 import time
 import json
 import numpy as np
+from tqdm import tqdm
 
 def concat_strings(df, sep="", fillna=np.nan):
     """ Concatenate along each row of strings, e.g.
@@ -32,8 +33,14 @@ pd.options.mode.chained_assignment = None
 def main(args):
 
     COLUMNS = json.loads(open(args.columnsFile).read())
+    # List of column names with eid for use in read_csv
+    COLUMNS_LIST = list(COLUMNS.keys())
+    COLUMNS_LIST.extend(['eid'])
+
     if args.derivedColumns:
         DERIVED_COLUMNS = json.loads(open(args.derivedColumnsFile).read())
+        [COLUMNS_LIST.extend(DERIVED_COLUMNS[k]['columns']) for k in DERIVED_COLUMNS.keys()]
+
     
     # Download a required packages for parsing
     nltk.download('punkt')
@@ -41,13 +48,27 @@ def main(args):
 
     before = time.time()
     print("Loading UKB file(s)...", flush=True, end=" ")
-    dfs = [pd.read_csv(_, low_memory=False, index_col='eid') for _ in args.ukbfile]
+
+    dfs = []
+    chunksize = 10000
+    for in_df in args.ukbfile:
+        print("Processing: ", in_df)
+        df=pd.DataFrame()
+        df_cols = pd.read_csv(in_df, nrows=0).columns.tolist()
+        col_list = list(set.intersection(set(df_cols), set(COLUMNS_LIST)))
+
+        chunks = pd.read_csv(in_df,\
+                   chunksize=chunksize, low_memory=False, \
+                   index_col="eid", usecols=col_list)
+        
+        tmp_df = pd.concat(chunk for chunk in tqdm(chunks, unit=" rows", unit_scale=chunksize))
+        dfs.append(tmp_df)
+
     df = reduce(lambda left,right: left.join(right, lsuffix="", rsuffix="_duplicate"), dfs)
     print(f"({time.time()-before:.2f}s)")
 
     column_parser = ColumnParser(args.datafile, args.codefile)
 
-    
     df_new = df[list(COLUMNS.keys())]
 
     if args.derivedColumns:
