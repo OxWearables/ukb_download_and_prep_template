@@ -2,6 +2,8 @@
 
 Detailed documentation is available [here](https://ukb-download-and-prep-template.readthedocs.io/).
 
+**WARNING: The history of this repository was altered on 2022-08-24. Ideally please delete any old copies you have of this repository and make a fresh clone. In particular, please do not submit pull requests using the old history.**
+
 **WARNING: This template was written to work with data in formats provided directly by UK Biobank via the Showcase or Data Portal (traditional access route). It is unlikely to work correctly with data downloaded from the UKB RAP (new access route). For example, [this bug](https://github.com/OxWearables/ukb_download_and_prep_template/issues/10) has been reported. It should not be used with data downloaded from the RAP without suitable amendment.**
 
 *IMPORTANT*: If you used or are using a version of this repo from before 19.02.2021, an error in date processing may have caused wrongly assigned dates for health outcomes. Please re-download and re-process any data processed with `addNewHES.py`. 
